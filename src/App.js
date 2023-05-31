@@ -7,20 +7,19 @@ import Info from "./component/info/Info";
 import Lounge from "./component/Lounge/Lounge";
 import Traveler from "./component/Traveler/Traveler";
 import Footer from "./component/Footer/Footer";
-
 const App = () => {
     return (
         <div>
             <Navbar></Navbar>
-            {/*<Home></Home>*/}
-            {/*<Search></Search>*/}
-            {/*<Support></Support>*/}
-            {/*<Info></Info>*/}
-            {/*<Lounge></Lounge>*/}
-            {/*<Traveler></Traveler>*/}
-            {/*<Support></Support>*/}
-            {/*<Navbar></Navbar>*/}
-            {/*<Footer></Footer>*/}
+            <Home></Home>
+            <Search></Search>
+            <Support></Support>
+            <Info></Info>
+            <Lounge></Lounge>
+            <Traveler></Traveler>
+            <Support></Support>
+            <Navbar></Navbar>
+            <Footer></Footer>
         </div>
     );
 };

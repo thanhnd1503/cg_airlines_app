@@ -1,11 +1,26 @@
-import React from 'react';
+import React from 'react'
+
+//Imported Images ===>
+import video from '../../asset/img/video-6c3a3cbd.mp4'
+import aeroplane from '../../asset/img/planeTakeOff-554f1650.png'
+
+
 
 const Home = () => {
     return (
-        <div>
-          home
-        </div>
-    );
-};
+        <div className='home flex container'>
+            <div className="mainText">
+                <h1>Create Ever-lasting Memories With Us</h1>
+            </div>
+            <div className="homeImages flex">
+                <div className="videoDiv">
+                    <video src={video} autoPlay muted loop className='video'></video>
+                </div>
+                <img src={aeroplane} className="plane" alt="Image" />
 
-export default Home;
+            </div>
+        </div>
+    )
+}
+
+export default Home
