@@ -1,11 +1,10 @@
 import React, {useEffect} from 'react'
 
-// Impported icons ===>
 import {HiOutlineLocationMarker} from 'react-icons/hi'
 import {RiAccountPinCircleLine} from 'react-icons/ri'
 import {RxCalendar} from 'react-icons/rx'
+import '../../asset/css/main.css'
 
-// import AOS ============================>
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 

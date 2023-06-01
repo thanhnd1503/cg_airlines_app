@@ -1,15 +1,13 @@
 import React, {useEffect} from 'react'
 
-// Imported icons ==========>
 import {TiSocialFacebook} from 'react-icons/ti'
 import {AiOutlineTwitter} from 'react-icons/ai'
 import {AiFillYoutube} from 'react-icons/ai'
 import {FaPinterestP} from 'react-icons/fa'
 
-//Imported Images ===>
-import Logo from '../../asset/img/logo-bff6793a.png'
+import Logo from '../../asset/img/logo.png'
 
-// import AOS ============================>
+import '../../asset/css/main.css'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 
@@ -18,23 +16,23 @@ const Footer = () => {
         Aos.init({duration: 2000})
     }, [])
     return (
-        <div className='footer'>
-            <div className="sectionContainer container grid">
-                <div data-aos="fade-up" data-aos-duration="2500" className="gridOne grid">
-                    <div className="logoDiv">
-                        <img src={Logo} className='Logo'/>
+        <div className={"footer"}>
+            <div className={"sectionContainer container grid"}>
+                <div data-aos="fade-up" data-aos-duration="2500" className={"gridOne grid"}>
+                    <div className={"logoDiv"}>
+                        <img src={Logo} className={"Logo"}/>
                     </div>
                     <p>Your mind should be stronger than your feelings, fly!</p>
-                    <div className="socialIcons flex">
-                        <TiSocialFacebook className='icon'/>
-                        <AiOutlineTwitter className='icon'/>
-                        <AiFillYoutube className='icon'/>
-                        <FaPinterestP className='icon'/>
+                    <div className={"socialIcons flex"}>
+                        <TiSocialFacebook className={"icon"}/>
+                        <AiOutlineTwitter className={"icon"}/>
+                        <AiFillYoutube className={"icon"}/>
+                        <FaPinterestP className={"icon"}/>
                     </div>
                 </div>
 
-                <div data-aos="fade-up" data-aos-duration="2500" className="footerLinks">
-                    <span className="linkTitle">Information</span>
+                <div data-aos="fade-up" data-aos-duration="2500" className={"footerLinks"}>
+                    <span className={"linkTitle"}>Information</span>
                     <li>
                         <a href="#">Home</a>
                     </li>
@@ -55,8 +53,8 @@ const Footer = () => {
                     </li>
                 </div>
 
-                <div data-aos="fade-up" data-aos-duration="2500" className="footerLinks">
-                    <span className="linkTitle">Quick Guide</span>
+                <div data-aos="fade-up" data-aos-duration="2500" className={"footerLinks"}>
+                    <span className={"linkTitle"}>Quick Guide</span>
                     <li>
                         <a href="#">FAQ</a>
                     </li>
@@ -77,8 +75,8 @@ const Footer = () => {
                     </li>
                 </div>
 
-                <div data-aos="fade-up" data-aos-duration="2500" className="footerLinks">
-                    <span className="linkTitle">Queries</span>
+                <div data-aos="fade-up" data-aos-duration="2500" className={"footerLinks"}>
+                    <span className={"linkTitle"}>Queries</span>
                     <li>
                         <a href="#">Chauffuer</a>
                     </li>
@@ -100,7 +98,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="copyrightDiv flex">
+            <div className={"copyrightDiv flex"}>
                 <p>Courtesy Design | Developed by Binh </p>
 
             </div>

@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react'
 
-//Imported Images
-import gridImage from '../../asset/img/Images-Grid-b08563f6.png'
+import gridImage from '../../asset/img/Images-Grid.png'
+import '../../asset/css/main.css'
 
-// import AOS ============================>
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 

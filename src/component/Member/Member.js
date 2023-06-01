@@ -1,22 +1,20 @@
 import React , {useEffect} from 'react'
 
-//Imported Destination Images ====>
-import paris from '../../asset/img/paris-92aa52aa.jpg'
-import NewYork from '../../asset/img/NewYork-731d3046.jpg'
-import london from '../../asset/img/london-bb4ed57c.jpg'
-import dubai from '../../asset/img/dubai-02be5bbc.jpg'
+import paris from '../../asset/img/paris.jpg'
+import NewYork from '../../asset/img/NewYork.jpg'
+import london from '../../asset/img/london.jpg'
+import dubai from '../../asset/img/dubai.jpg'
 
-//Imported Travelers Images ====>
-import traveler1 from '../../asset/img/user (1)-85a5ea1d.png'
-import traveler2 from '../../asset/img/user (2)-228d0dc1.png'
-import traveler3 from '../../asset/img/user (3)-a76f669e.png'
-import traveler4 from '../../asset/img/user (4)-c2e0b240.png'
+import traveler1 from '../../asset/img/user (1).png'
+import traveler2 from '../../asset/img/user (2).png'
+import traveler3 from '../../asset/img/user (3).png'
+import traveler4 from '../../asset/img/user (4).png'
 
-// import AOS ============================>
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import '../../asset/css/main.css'
 
-const travelers = [
+const members = [
     {
         id: 1,
         destinationImage: NewYork,
@@ -47,7 +45,7 @@ const travelers = [
     }
 ]
 
-const Travelers = () => {
+const Member = () => {
 
 
     useEffect(()=>{
@@ -55,21 +53,21 @@ const Travelers = () => {
     }, [])
 
     return (
-        <div className='travelers container section'>
-            <div className="sectionContainer">
+        <div className={"travelers container section"}>
+            <div className={"sectionContainer"}>
                 <h2 data-aos="fade-down" data-aos-duration="2500">Top travelers of this month!</h2>
 
-                <div className="travelersContainer grid">
+                <div className={"travelersContainer grid"}>
                     {
-                        travelers.map(({id, destinationImage, travelerImage, travelerName, socialLink}) =>{
+                        members.map(({id, destinationImage, travelerImage, travelerName, socialLink}) =>{
                             return(
-                                <div data-aos="fade-up" data-aos-duration="2500" key={id} className="singleTraveler">
-                                    <img src={destinationImage} className='destinationImage'/>
-                                    <div className="travelerDetails">
-                                        <div className="travelerPicture">
-                                            <img src={travelerImage} className='travelerImage'/>
+                                <div data-aos="fade-up" data-aos-duration="2500" key={id} className={"singleTraveler"}>
+                                    <img src={destinationImage} className={"destinationImage"}/>
+                                    <div className={"travelerDetails"}>
+                                        <div className={"travelerPicture"}>
+                                            <img src={travelerImage} className={"travelerImage"}/>
                                         </div>
-                                        <div className="travelerName">
+                                        <div className={"travelerName"}>
                                             <span>{travelerName}</span>
                                             <p>{socialLink}</p>
                                         </div>
@@ -84,4 +82,4 @@ const Travelers = () => {
     )
 }
 
-export default Travelers
+export default Member

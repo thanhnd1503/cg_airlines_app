@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react'
+import '../../asset/css/main.css'
 
-// Imported Images =======>
-import imageGrid from '../../asset/img/images-Grid2-c2559fab.png'
-// import AOS ============================>
+import imageGrid from '../../asset/img/images-Grid2.png'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 const Lounge = () => {
@@ -10,17 +9,17 @@ const Lounge = () => {
         Aos.init({duration: 2000})
     }, [])
     return (
-        <div className='lounge container section'>
-            <div className="sectionContainer grid">
-                <div data-aos="fade-left" data-aos-duration="2500" className="imgDiv">
+        <div className={"lounge container section"}>
+            <div className={"sectionContainer grid"}>
+                <div data-aos="fade-left" data-aos-duration="2500" className={"imgDiv"}>
                     <img src={imageGrid} alt="" />
                 </div>
-                <div className="textDiv">
+                <div className={"textDiv"}>
                     <h2 data-aos="fade-down" data-aos-duration="2500">Unaccompanied Minor Lounge</h2>
 
-                    <div className="grids grid">
-                        <div data-aos="fade-down" data-aos-duration="2500" className="singleGrid">
-                    <span className="gridTitle">
+                    <div className={"grids grid"}>
+                        <div data-aos="fade-down" data-aos-duration="2500" className={"singleGrid"}>
+                    <span className={"gridTitle"}>
                         Help through the airpot
                     </span>
                             <p>
@@ -28,8 +27,8 @@ const Lounge = () => {
                             </p>
                         </div>
 
-                        <div data-aos="fade-down" data-aos-duration="2500" className="singleGrid">
-                    <span className="gridTitle">
+                        <div data-aos="fade-down" data-aos-duration="2500" className={"singleGrid"}>
+                    <span className={"gridTitle"}>
                         Priority Boarding
                     </span>
                             <p>
@@ -37,8 +36,8 @@ const Lounge = () => {
                             </p>
                         </div>
 
-                        <div data-aos="fade-down" data-aos-duration="2500" className="singleGrid">
-                    <span className="gridTitle">
+                        <div data-aos="fade-down" data-aos-duration="2500" className={"singleGrid"}>
+                    <span className={"gridTitle"}>
                         Care on the flight
                     </span>
                             <p>
@@ -46,8 +45,8 @@ const Lounge = () => {
                             </p>
                         </div>
 
-                        <div data-aos="fade-down" data-aos-duration="2500" className="singleGrid">
-                    <span className="gridTitle">
+                        <div data-aos="fade-down" data-aos-duration="2500" className={"singleGrid"}>
+                    <span className={"gridTitle"}>
                         Chauffeur-drive service
                     </span>
                             <p>
