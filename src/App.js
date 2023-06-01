@@ -1,29 +1,31 @@
-import React from 'react';
+import React from "react";
+import logo from "./logo.svg";
+import {Counter} from "./features/counter/Counter";
+import "./../src/asset/css/main.css";
 import Navbar from "./component/Navbar/Navbar";
-import Home from "./component/Home/Home";
 import Search from "./component/Search/Search";
+import Footer from "./component/Footer/Footer";
+import Home from "./component/Home/Home";
 import Support from "./component/Support/Support";
 import Info from "./component/info/Info";
 import Lounge from "./component/Lounge/Lounge";
-import Footer from "./component/Footer/Footer";
-import "../src/asset/css/main.css"
-import Menmber from "./component/Member/Member";
+import Subcribe from "./component/Subscibe/Subscibe";
+import Members from "./component/Member/Menber";
 
-const App = () => {
+function App() {
     return (
-
-        <div>
-            <Navbar></Navbar>
-            <Home></Home>
-            <Search></Search>
+        <>
+            <Navbar/>
+            <Home/>
+            <Search/>
             <Support></Support>
             <Info></Info>
             <Lounge></Lounge>
-            <Menmber></Menmber>
-            <Support></Support>
-            <Footer></Footer>
-        </div>
+            <Members></Members>
+            <Subcribe></Subcribe>
+            <Footer/>
+        </>
     );
-};
+}
 
 export default App;
