@@ -1,58 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import {Counter} from "./features/counter/Counter";
+import "./../src/asset/css/main.css";
+import Navbar from "./component/Navbar/Navbar";
+import Search from "./component/Search/Search";
+import Footer from "./component/Footer/Footer";
+import Home from "./component/Home/Home";
+import Support from "./component/Support/Support";
+import Info from "./component/info/Info";
+import Lounge from "./component/Lounge/Lounge";
+import Subcribe from "./component/Subscibe/Subscibe";
+import Members from "./component/Member/Menber";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Navbar/>
+            <Home/>
+            <Search/>
+            <Support></Support>
+            <Info></Info>
+            <Lounge></Lounge>
+            <Members></Members>
+            <Subcribe></Subcribe>
+            <Footer/>
+        </>
+    );
 }
 
 export default App;
