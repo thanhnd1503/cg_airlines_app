@@ -233,7 +233,7 @@ export default function SignUpForm() {
 
   return (
     <>
-      <div className="main">
+      <div className="main body">
         <section className="signup">
           <img src="images/signup-bg.jpg" alt="" />
           <div className="container">

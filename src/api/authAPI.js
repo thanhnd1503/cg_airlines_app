@@ -11,6 +11,9 @@ import {
     logoutFail,
 } from "../features/slice/authSlice";
 
+
+
+
 export const signUpUser = async (data, dispatch, navigate) => {
     const LOGIN_API="http://localhost:8080/api";
     dispatch(registerStart());
@@ -35,10 +38,21 @@ export const loginUser = async (form, dispatch, navigate) => {
         const res = await api.post(`${LOGIN_API}/auth/login`, form);
         dispatch(loginSuccess(res.data));
         setTimeout(() => {
-            navigate("/register");
+            navigate("/");
         }, 1000);
 
     } catch (err) {
         dispatch(loginFail());
+    }
+}
+
+export const logout = async (dispatch,navigate) =>{
+    dispatch(logoutStart());
+    try{
+        localStorage.removeItem('persist:root')
+        dispatch(logoutSuccess());
+        navigate("/")
+    }catch (err){
+        dispatch(logoutFail());
     }
 }

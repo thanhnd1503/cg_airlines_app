@@ -86,99 +86,101 @@ export default function LoginForm() {
 
   return (
     <>
-      <div className="main">
-        <section className="signup">
-          <img src="images/signup-bg.jpg" alt="" />
-          <div className="container">
-            <div className="signup-content">
-              <form
-                ref={formRef}
-                onSubmit={handleSubmit}
-                id="signup-form"
-                className="signup-form"
-              >
-                <h2 className="form-title">Sign in</h2>
-                <div className="form-group">
-                  <label htmlFor="username">
-                    <h3>Username:</h3>
-                  </label>
-                  <input
-                    type="text"
-                    ref={userRef}
-                    className="form-input"
-                    id="username"
-                    name="username"
-                    autoComplete="off"
-                    onChange={(e) => {
-                      setUserName(e.target.value);
-                      handleChangeSignup(e);
-                    }}
-                    value={userName}
-                    required
-                    onFocus={() => setUserFocus(true)}
-                    onBlur={() => setUserFocus(false)}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="password">
-                    <h3> Password:</h3>
-                  </label>
-
-                  <span
-                    style={{
-                      display: "flex",
-                      justifyContent: "flex-end",
-                      alignItems: "center",
-                    }}
-                  >
+     
+        <div className="main body">
+          <section className="signup">
+            <img src="images/signup-bg.jpg" alt="" />
+            <div className="container">
+              <div className="signup-content">
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  id="signup-form"
+                  className="signup-form"
+                >
+                  <h2 className="form-title">Sign in</h2>
+                  <div className="form-group">
+                    <label htmlFor="username">
+                      <h3>Username:</h3>
+                    </label>
                     <input
-                      type={showPassword ? "text" : "password"}
-                      id="password"
-                      name="password"
+                      type="text"
+                      ref={userRef}
                       className="form-input"
+                      id="username"
+                      name="username"
+                      autoComplete="off"
                       onChange={(e) => {
-                        setPassword(e.target.value);
+                        setUserName(e.target.value);
                         handleChangeSignup(e);
                       }}
-                      value={password}
+                      value={userName}
                       required
-                      onFocus={() => setpwdFocus(true)}
-                      onBlur={() => {
-                        setpwdFocus(false);
+                      onFocus={() => setUserFocus(true)}
+                      onBlur={() => setUserFocus(false)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="password">
+                      <h3> Password:</h3>
+                    </label>
+
+                    <span
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        alignItems: "center",
                       }}
-                    />
+                    >
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        id="password"
+                        name="password"
+                        className="form-input"
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                          handleChangeSignup(e);
+                        }}
+                        value={password}
+                        required
+                        onFocus={() => setpwdFocus(true)}
+                        onBlur={() => {
+                          setpwdFocus(false);
+                        }}
+                      />
 
-                    <FontAwesomeIcon
-                      style={{ position: "absolute", marginRight: "16.5px" }}
-                      fontSize={"20px"}
-                      onClick={togglePasswordVisibility}
-                      icon={showPassword ? faEyeSlash : faEye}
+                      <FontAwesomeIcon
+                        style={{ position: "absolute", marginRight: "16.5px" }}
+                        fontSize={"20px"}
+                        onClick={togglePasswordVisibility}
+                        icon={showPassword ? faEyeSlash : faEye}
+                      />
+                    </span>
+                  </div>
+                  <br />
+                  <br />
+                  <div className="form-group">
+                    <input
+                      type="submit"
+                      name="submit"
+                      id="submit"
+                      className="form-submit my-input"
+                      value="Sign in"
                     />
-                  </span>
-                </div>
-                <br />
-                <br />
-                <div className="form-group">
-                  <input
-                    type="submit"
-                    name="submit"
-                    id="submit"
-                    className="form-submit my-input"
-                    value="Sign in"
-                  />
-                </div>
-              </form>
+                  </div>
+                </form>
 
-              <p className="loginhere">
-                Don't have any account ?{" "}
-                <Link to="/register" className="loginhere-link">
-                  Sign up here
-                </Link>
-              </p>
+                <p className="loginhere">
+                  Don't have any account ?{" "}
+                  <Link to="/register" className="loginhere-link">
+                    Sign up here
+                  </Link>
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+     
     </>
   );
 }
