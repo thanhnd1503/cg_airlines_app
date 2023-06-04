@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
-import {Counter} from "./features/counter/Counter";
+import { Counter } from "./features/counter/Counter";
 import "./../src/asset/css/main.css";
 import Navbar from "./component/Navbar/Navbar";
 import Search from "./component/Search/Search";
@@ -11,21 +11,24 @@ import Info from "./component/info/Info";
 import Lounge from "./component/Lounge/Lounge";
 import Subcribe from "./component/Subscibe/Subscibe";
 import Members from "./component/Member/Menber";
+import  ViewTicket from "./component/Ticket/viewTicket";
 
 function App() {
-    return (
-        <>
-            <Navbar/>
-            <Home/>
-            <Search/>
-            <Support></Support>
-            <Info></Info>
-            <Lounge></Lounge>
-            <Members></Members>
-            <Subcribe></Subcribe>
-            <Footer/>
-        </>
-    );
+  return (
+    <>
+      <Navbar />
+      <Home />
+      <Search />
+      <Support></Support>
+      <Info></Info>
+      <Lounge></Lounge>
+      <Members></Members>
+      <Subcribe></Subcribe>
+      <Footer />
+      <ViewTicket></ViewTicket>
+
+    </>
+  );
 }
 
 export default App;
