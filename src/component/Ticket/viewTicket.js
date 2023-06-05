@@ -8,7 +8,7 @@ const ViewTicket = () => {
   return (
     <body>
       <div style={{ backgroundClip: `url(${videohoa})` }}>
-        <video width="100%" loop autoPlay={true} controls>
+        <video widthnp="100%" loop autoPlay={true} controls>
           <source src={videohoa} type="video/mp4" />
         </video>
 
