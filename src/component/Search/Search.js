@@ -1,4 +1,12 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
+import {
+    selectSuccess,
+    selectTripList,
+    getTrips,
+    setSuccess,
+} from "../../features/trip/tripSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
 // Impported icons ===>
 import {HiOutlineLocationMarker} from 'react-icons/hi'
@@ -10,27 +18,45 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 
 const Search = () => {
+    const [staffs, setStaffs] = useState([]);
+    const dispatch = useDispatch();
+    //   const navigate = useNavigate();
+    const staffList = useSelector(selectTripList);
+    const success = useSelector(selectSuccess);
 
-   useEffect(()=>{
-    Aos.init({duration: 2000})
-  }, []) 
+    const getStaffList = async () => {
+        if (!success) {
+            dispatch(getTrips());
+        } else {
+            setStaffs(staffList);
+            dispatch(setSuccess(true));
+        }
+    };
 
-  return (
-    <div className='search container section'>
-        <div data-aos="fade-up" data-aos-duration="2500" className="sectionContainer grid">
-            <div  className="btns flex">
-                <div className="singleBtn ">
-                    <span>Economy</span>
-                </div>
-                <div className="singleBtn active">
-                    <span>Business Class</span>
-                </div>
-                <div className="singleBtn">
-                    <span>Fast Class</span>
-                </div>
-            </div>
+    useEffect(() => {
+        getStaffList();
+    }, [success]);
 
-            <div  data-aos="fade-up" data-aos-duration="2500" className="searchInputs flex">
+    useEffect(() => {
+        Aos.init({duration: 2000})
+    }, [])
+
+    return (
+        <div className='search container section'>
+            <div data-aos="fade-up" data-aos-duration="2500" className="sectionContainer grid">
+                <div className="btns flex">
+                    <div className="singleBtn ">
+                        <span>Economy</span>
+                    </div>
+                    <div className="singleBtn active">
+                        <span>Business Class</span>
+                    </div>
+                    <div className="singleBtn">
+                        <span>Fast Class</span>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-duration="2500" className="searchInputs flex">
                     {/* Single Input */}
                     <div className="singleInput flex">
                         <div className="iconDiv">
@@ -77,10 +103,10 @@ const Search = () => {
 
                     <button className='btn btnBlock flex'>Search Flight</button>
 
+                </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default Search

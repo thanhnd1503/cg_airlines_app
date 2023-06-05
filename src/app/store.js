@@ -1,5 +1,6 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import authReducer from "../features/slice/authSlice";
+import tripReducer from "../features/trip/tripSlice"
 // import userReducer from "./userSlice";
 import {
     persistStore,
@@ -12,13 +13,17 @@ import {
     REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 const persistConfig = {
     key: 'root',
     version: 1,
     storage,
 };
 
-const rootReducer = combineReducers({auth: authReducer});
+const rootReducer = combineReducers({
+    auth: authReducer,
+    trip: tripReducer
+});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
