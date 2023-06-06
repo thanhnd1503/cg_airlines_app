@@ -43,6 +43,7 @@ export const loginUser = async (form, dispatch, navigate) => {
 
     } catch (err) {
         dispatch(loginFail());
+       throw err;
     }
 }
 

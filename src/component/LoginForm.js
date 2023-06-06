@@ -66,10 +66,7 @@ export default function LoginForm() {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        swal({
-          icon: "success",
-          title: "Login Successfully",
-        });
+      try{
         setTimeout(() => {
           swal.close();
         }, 1300);
@@ -78,9 +75,14 @@ export default function LoginForm() {
           password: form.password,
         };
         await loginUser(data, dispatch, navigate);
-      } else {
-        swal("Login Failed");
-      }
+        swal({
+          icon: "success",
+          title: "Login Successfully",
+        });
+      }catch (e) {
+        swal("Login failed!");
+      }}
+
     });
   };
 
