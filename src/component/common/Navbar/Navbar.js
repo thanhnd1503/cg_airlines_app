@@ -30,46 +30,43 @@ const Navbar = () => {
     window.addEventListener('scroll', addBg)
 
 
-    return (
-        <div className='navBar flex'>
-            <div className="navBarOne flex">
-                <div></div>
-                <div className='atb '>
-                    <span> Sign In</span>
-                    <span> Register</span>
-                </div>
+    return (<div className='navBar flex'>
+        <div className="navBarOne flex">
+            <div></div>
+            <div className='atb '>
+                <span> Sign In</span>
+                <span> Register</span>
+            </div>
+        </div>
+
+        <div className={transparent}>
+            <div className="logoDiv">
             </div>
 
-            <div className={transparent}>
-                <div className="logoDiv">
-                    <img src={Logo} className='Logo'/>
-                </div>
+            <div className={active}>
+                <ul className="menu flex">
+                    <li onClick={removeNavBar} className="listItem">Home</li>
+                    <li onClick={removeNavBar} className="listItem">About</li>
+                    <li onClick={removeNavBar} className="listItem">Offers</li>
+                    <li onClick={removeNavBar} className="listItem">Seats</li>
+                    <li onClick={removeNavBar} className="listItem">Destinations</li>
+                </ul>
 
-                <div className={active}>
-                    <ul className="menu flex">
-                        <li onClick={removeNavBar} className="listItem">Home</li>
-                        <li onClick={removeNavBar} className="listItem">About</li>
-                        <li onClick={removeNavBar} className="listItem">Offers</li>
-                        <li onClick={removeNavBar} className="listItem">Seats</li>
-                        <li onClick={removeNavBar} className="listItem">Destinations</li>
-                    </ul>
-
-                    <button onClick={removeNavBar} className='btn btnOne flex'>
-                        Contact
-                    </button>
-                </div>
-
-                <button className='btnTwo btn'>
+                <button onClick={removeNavBar} className='btn btnOne flex'>
                     Contact
                 </button>
-
-                <div onClick={showNavBar} className="toggleIcon">
-                    <CgMenuGridO className='icon'/>
-                </div>
             </div>
 
+            <button className='btnTwo btn'>
+                Contact
+            </button>
+
+            <div onClick={showNavBar} className="toggleIcon">
+                <CgMenuGridO className='icon'/>
+            </div>
         </div>
-    )
+
+    </div>)
 }
 
 export default Navbar
