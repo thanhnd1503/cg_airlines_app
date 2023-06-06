@@ -11,7 +11,7 @@ import Info from "./component/info/Info";
 import Lounge from "./component/Lounge/Lounge";
 import Subcribe from "./component/Subscibe/Subscibe";
 import Members from "./component/Member/Menber";
-import  ViewTicket from "./component/Ticket/viewTicket";
+// import  ViewTicket from "./component/Ticket/viewTicket";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
       <Members></Members>
       <Subcribe></Subcribe>
       <Footer />
-      <ViewTicket></ViewTicket>
+      {/* <ViewTicket></ViewTicket> */}
 
     </>
   );
