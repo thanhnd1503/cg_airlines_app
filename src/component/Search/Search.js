@@ -1,112 +1,96 @@
-import React, {useEffect, useState} from 'react'
-import {
-    selectSuccess,
-    selectTripList,
-    getTrips,
-    setSuccess,
-} from "../../features/trip/tripSlice";
-import {useDispatch, useSelector} from "react-redux";
-import {Link} from "react-router-dom";
-
-// Impported icons ===>
-import {HiOutlineLocationMarker} from 'react-icons/hi'
-import {RiAccountPinCircleLine} from 'react-icons/ri'
-import {RxCalendar} from 'react-icons/rx'
-
-// import AOS ============================>
-import Aos from 'aos'
-import 'aos/dist/aos.css'
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import Select from 'react-select';
+import {getTrips, selectSuccess, selectTripList, setSuccess} from '../../features/trip/tripSlice';
+import {HiOutlineLocationMarker} from 'react-icons/hi';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Search = () => {
-    const [staffs, setStaffs] = useState([]);
+    const [trips, setTrips] = useState([]);
     const dispatch = useDispatch();
-    //   const navigate = useNavigate();
-    const staffList = useSelector(selectTripList);
+    const tripList = useSelector(selectTripList);
     const success = useSelector(selectSuccess);
 
-    const getStaffList = async () => {
+    const getTripList = async () => {
         if (!success) {
             dispatch(getTrips());
         } else {
-            setStaffs(staffList);
+            setTrips(tripList);
             dispatch(setSuccess(true));
         }
     };
 
     useEffect(() => {
-        getStaffList();
+        getTripList();
     }, [success]);
 
     useEffect(() => {
-        Aos.init({duration: 2000})
-    }, [])
+        Aos.init({duration: 2000});
+    }, []);
 
     return (
         <div className='search container section'>
-            <div data-aos="fade-up" data-aos-duration="2500" className="sectionContainer grid">
-                <div className="btns flex">
-                    <div className="singleBtn ">
+            <div data-aos='fade-up' data-aos-duration='2500' className='sectionContainer grid'>
+                <div className='btns flex'>
+                    <div className='singleBtn'>
                         <span>Economy</span>
                     </div>
-                    <div className="singleBtn active">
+                    <div className='singleBtn active'>
                         <span>Business Class</span>
                     </div>
-                    <div className="singleBtn">
+                    <div className='singleBtn'>
                         <span>Fast Class</span>
                     </div>
                 </div>
+                <form>
+                    <div data-aos='fade-up' data-aos-duration='2500' className='searchInputs flex'>
+                        <div className='singleInput flex'>
+                            <div className='iconDiv'>
+                                <HiOutlineLocationMarker className='icon'/>
+                            </div>
+                            <div className='texts'>
+                                <h4>Origin</h4>
+                                <Select
+                                    placeholder='Select origin'
+                                    options={tripList.map((trip) => ({label: trip.origin, value: trip.origin}))}
+                                    onChange={(selectedOption) => setTrips({...trips, origin: selectedOption.value})}
+                                />
+                            </div>
+                        </div>
 
-                <div data-aos="fade-up" data-aos-duration="2500" className="searchInputs flex">
-                    {/* Single Input */}
-                    <div className="singleInput flex">
-                        <div className="iconDiv">
-                            <HiOutlineLocationMarker className='icon'/>
+                        <div className='singleInput flex'>
+                            <div className='iconDiv'>
+                                <HiOutlineLocationMarker className='icon'/>
+                            </div>
+                            <div className='texts'>
+                                <h4>Destination</h4>
+                                <Select
+                                    placeholder='Select destination'
+                                    options={tripList.map((trip) => ({
+                                        label: trip.destination,
+                                        value: trip.destination
+                                    }))}
+                                    onChange={(selectedOption) => setTrips({
+                                        ...trips,
+                                        destination: selectedOption.value
+                                    })}
+                                />
+                            </div>
                         </div>
-                        <div className="texts">
-                            <h4>Location</h4>
-                            <input type="text" placeholder='Where do you want to go?'/>
-                        </div>
+
+                        <Link
+                            to={`/search-result/${trips.origin}/${trips.destination}`}
+                            className='btn btnBlock flex'
+                        >
+                            Search Flight
+                        </Link>
                     </div>
-
-                    {/* Single Input */}
-                    <div className="singleInput flex">
-                        <div className="iconDiv">
-                            <RiAccountPinCircleLine className='icon'/>
-                        </div>
-                        <div className="texts">
-                            <h4>Travelers</h4>
-                            <input type="text" placeholder='Add guests'/>
-                        </div>
-                    </div>
-
-                    {/* Single Input */}
-                    <div className="singleInput flex">
-                        <div className="iconDiv">
-                            <RxCalendar className='icon'/>
-                        </div>
-                        <div className="texts">
-                            <h4>Check In</h4>
-                            <input type="text" placeholder='Add date'/>
-                        </div>
-                    </div>
-
-                    {/* Single Input */}
-                    <div className="singleInput flex">
-                        <div className="iconDiv">
-                            <RxCalendar className='icon'/>
-                        </div>
-                        <div className="texts">
-                            <h4>Check Out</h4>
-                            <input type="text" placeholder='Add date'/>
-                        </div>
-                    </div>
-
-                    <button className='btn btnBlock flex'>Search Flight</button>
-
-                </div>
+                </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Search
+export default Search;

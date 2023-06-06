@@ -234,6 +234,7 @@ export default function SignUpForm() {
   return (
     <>
       <div className="main body">
+
         <section className="signup">
           <img src="images/signup-bg.jpg" alt="" />
           <div className="container">
@@ -244,6 +245,8 @@ export default function SignUpForm() {
                 id="signup-form"
                 className="signup-form"
               >
+                <a className={"form-title"} href={"/"}>back</a>
+
                 <h2 className="form-title">Create account</h2>
                 <p
                   ref={errRef}
