@@ -50,13 +50,14 @@ export default function LoginForm() {
     };
 
 
-    function handleChangeSignup(event) {
-        setForm({
-            ...form,
-            [event.target.name]: event.target.value,
-        });
-    }
-  
+  function handleChangeSignup(event) {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  }
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         swal({
