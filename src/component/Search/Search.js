@@ -8,7 +8,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 
 const Search = () => {
-    const [trips, setTrips] = useState([]);
+    const [trips, setTrips] = useState({origin: '', destination: ''});
     const dispatch = useDispatch();
     const tripList = useSelector(selectTripList);
     const success = useSelector(selectSuccess);
@@ -29,6 +29,14 @@ const Search = () => {
     useEffect(() => {
         Aos.init({duration: 2000});
     }, []);
+
+    const handleOriginChange = (selectedOption) => {
+        setTrips({...trips, origin: selectedOption.value});
+    };
+
+    const handleDestinationChange = (selectedOption) => {
+        setTrips({...trips, destination: selectedOption.value});
+    };
 
     return (
         <div className='search container section'>
@@ -53,9 +61,12 @@ const Search = () => {
                             <div className='texts'>
                                 <h4>Origin</h4>
                                 <Select
-                                    placeholder='Select origin'
-                                    options={tripList.map((trip) => ({label: trip.origin, value: trip.origin}))}
-                                    onChange={(selectedOption) => setTrips({...trips, origin: selectedOption.value})}
+                                    placeholder='Select place'
+                                    options={tripList && tripList.map((trip) => ({
+                                        label: trip.origin,
+                                        value: trip.origin
+                                    }))}
+                                    onChange={handleOriginChange}
                                 />
                             </div>
                         </div>
@@ -68,21 +79,19 @@ const Search = () => {
                                 <h4>Destination</h4>
                                 <Select
                                     placeholder='Select destination'
-                                    options={tripList.map((trip) => ({
+                                    options={tripList && tripList.map((trip) => ({
                                         label: trip.destination,
                                         value: trip.destination
                                     }))}
-                                    onChange={(selectedOption) => setTrips({
-                                        ...trips,
-                                        destination: selectedOption.value
-                                    })}
+                                    onChange={handleDestinationChange}
                                 />
                             </div>
                         </div>
 
                         <Link
                             to={`/search-result/${trips.origin}/${trips.destination}`}
-                            className='btn btnBlock flex'
+                            className={`btn btnBlock flex ${!trips.origin || !trips.destination ? 'disabled' : ''}`}
+                            disabled={!trips.origin || !trips.destination}
                         >
                             Search Flight
                         </Link>
