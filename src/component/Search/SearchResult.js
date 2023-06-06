@@ -8,6 +8,7 @@ const SearchResult = () => {
     const tripList = useSelector(selectTripList);
 
     // Filter the tripList based on origin and destination
+
     const filteredTrips = tripList.filter(
         trip => trip.origin === origin && trip.destination === destination
     );
