@@ -1,100 +1,133 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import {useNavigate} from 'react-router-dom';
 import Select from 'react-select';
-import {getTrips, selectSuccess, selectTripList, setSuccess} from '../../features/trip/tripSlice';
 import {HiOutlineLocationMarker} from 'react-icons/hi';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import {useDispatch} from 'react-redux';
+import {SearchTrip} from '../../api/tripApi';
 
 const Search = () => {
-    const [trips, setTrips] = useState({origin: '', destination: ''});
+    const [departure, setDeparture] = useState('');
+    const [destination, setDestination] = useState('');
+    const [departureDate, setDepartureDate] = useState('');
+    const [ticketClass, setTicketClass] = useState('');
+
+    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const tripList = useSelector(selectTripList);
-    const success = useSelector(selectSuccess);
-
-    const getTripList = async () => {
-        if (!success) {
-            dispatch(getTrips());
-        } else {
-            setTrips(tripList);
-            dispatch(setSuccess(true));
-        }
-    };
 
     useEffect(() => {
-        getTripList();
-    }, [success]);
-
-    useEffect(() => {
-        Aos.init({duration: 2000});
+        Aos.init({duration: 2500});
     }, []);
 
-    const handleOriginChange = (selectedOption) => {
-        setTrips({...trips, origin: selectedOption.value});
-    };
+    function handleOriginChange(selectedOption) {
+        setDeparture(selectedOption.value);
+    }
 
-    const handleDestinationChange = (selectedOption) => {
-        setTrips({...trips, destination: selectedOption.value});
-    };
+    function handleDestinationChange(selectedOption) {
+        setDestination(selectedOption.value);
+    }
 
+    function handleTicketClassChange(selectedOption) {
+        setTicketClass(selectedOption.value);
+    }
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        try {
+            const form = {
+                departure,
+                destination,
+                departureDate,
+                ticketClass,
+            };
+
+            await SearchTrip(form, dispatch, navigate);
+        } catch (err) {
+            console.error('Search failed:', err);
+        }
+    }
+
+    const originOptions = [
+        {value: 'HN', label: 'Hanoi'},
+        {value: 'HCM', label: 'Ho Chi Minh City'},
+        // Add more origin options as needed
+    ];
+
+    const destinationOptions = [
+        {value: 'HN', label: 'Hanoi'},
+        {value: 'HCM', label: 'Ho Chi Minh City'},
+        // Add more destination options as needed
+    ];
+    const ticketClassOption = [
+        {value: 'thương gia', label: 'thương gia'},
+        {value: 'Bình dân', label: 'Bình dân'},
+
+    ]
     return (
-        <div className='search container section'>
-            <div data-aos='fade-up' data-aos-duration='2500' className='sectionContainer grid'>
-                <div className='btns flex'>
-                    <div className='singleBtn'>
-                        <span>Economy</span>
-                    </div>
-                    <div className='singleBtn active'>
-                        <span>Business Class</span>
-                    </div>
-                    <div className='singleBtn'>
-                        <span>Fast Class</span>
-                    </div>
-                </div>
-                <form>
-                    <div data-aos='fade-up' data-aos-duration='2500' className='searchInputs flex'>
-                        <div className='singleInput flex'>
-                            <div className='iconDiv'>
-                                <HiOutlineLocationMarker className='icon'/>
+        <div className="search container section">
+            <div data-aos="fade-up" data-aos-duration="2500" className="sectionContainer grid">
+                <form onSubmit={handleSubmit}>
+                    <div data-aos="fade-up" data-aos-duration="2500" className="searchInputs flex">
+                        <div className="singleInput flex">
+                            <div className="iconDiv">
+                                <HiOutlineLocationMarker className="icon"/>
                             </div>
-                            <div className='texts'>
+                            <div className="texts">
                                 <h4>Origin</h4>
                                 <Select
-                                    placeholder='Select place'
-                                    options={tripList && tripList.map((trip) => ({
-                                        label: trip.origin,
-                                        value: trip.origin
-                                    }))}
+                                    placeholder="Select place"
+                                    value={originOptions.find((option) => option.value === departure)}
+                                    options={originOptions}
                                     onChange={handleOriginChange}
                                 />
                             </div>
                         </div>
 
-                        <div className='singleInput flex'>
-                            <div className='iconDiv'>
-                                <HiOutlineLocationMarker className='icon'/>
+                        <div className="singleInput flex">
+                            <div className="iconDiv">
+                                <HiOutlineLocationMarker className="icon"/>
                             </div>
-                            <div className='texts'>
+                            <div className="texts">
                                 <h4>Destination</h4>
                                 <Select
-                                    placeholder='Select destination'
-                                    options={tripList && tripList.map((trip) => ({
-                                        label: trip.destination,
-                                        value: trip.destination
-                                    }))}
+                                    placeholder="Select destination"
+                                    value={destinationOptions.find((option) => option.value === destination)}
+                                    options={destinationOptions}
                                     onChange={handleDestinationChange}
                                 />
                             </div>
                         </div>
 
-                        <Link
-                            to={`/search-result/${trips.origin}/${trips.destination}`}
-                            className={`btn btnBlock flex ${!trips.origin || !trips.destination ? 'disabled' : ''}`}
-                            disabled={!trips.origin || !trips.destination}
-                        >
+                        <div className="singleInput flex">
+                            <div className="iconDiv">
+                                <HiOutlineLocationMarker className="icon"/>
+                            </div>
+                            <div className="texts">
+                                <h4>Date</h4>
+                                <input type="date" value={departureDate}
+                                       onChange={(e) => setDepartureDate(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className="singleInput flex">
+                            <div className="iconDiv">
+                                <HiOutlineLocationMarker className="icon"/>
+                            </div>
+                            <div className="texts">
+                                <h4>Class</h4>
+                                <Select
+                                    type="text"
+                                    value={ticketClassOption.find((option) => option.value === ticketClass)}
+                                    options={ticketClassOption}
+                                    onChange={handleTicketClassChange}/>
+                            </div>
+                        </div>
+                        <button
+                            type="submit"
+                            className={`btn btnBlock flex `}>
                             Search Flight
-                        </Link>
+                        </button>
+
                     </div>
                 </form>
             </div>

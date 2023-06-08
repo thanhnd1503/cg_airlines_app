@@ -15,7 +15,7 @@ function App() {
                 <Routes>
                     <Route path='/' element={<DashBoard/>} errorElement={<ErrorPage/>} loader={{tokenLoader}}>
                     </Route>
-                    <Route path={`/search-result/:origin/:destination`}
+                    <Route path={`/search-result/:departure/:destination/:departureDate/:ticketClass`}
                            element={<TripListContent/>}></Route>
 
                     <Route path='/login' element={<LoginForm/>}></Route>

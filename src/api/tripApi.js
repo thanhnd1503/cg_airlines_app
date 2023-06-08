@@ -1,53 +1,26 @@
+import {
+    searchStart,
+    searchFail,
+    searchSuccess
+} from "../features/trip/tripSlice";
 import axios from "axios";
 
-const CG_trip_API = "https://646dc5f59c677e23218a6208.mockapi.io";
 
-export const findtrips = async () => {
-    let result = null;
-    try {
-        result = await axios.get(`${CG_trip_API}/trip`);
-    } catch (e) {
-        console.log("Find trips API error: " + e);
-    }
-    return result;
-};
+export const SearchTrip = async (form, dispatch, navigate) => {
+    const Search_API = "http://localhost:8080/api";
+    dispatch(searchStart());
 
-export const findtrip = async (tripId) => {
-    let result = null;
+    console.log(1)
     try {
-        result = await axios.get(`${CG_trip_API}/trip/${tripId}`);
-    } catch (e) {
-        console.log("Find trip API error: " + e);
+        console.log(2)
+        const res = await axios.post(`${Search_API}/users/search`, form);
+        dispatch(searchSuccess(res.data.content));
+        setTimeout(() => {
+            navigate(`/search-result/${form.departure}/${form.destination}/${form.departureDate}/${form.ticketClass}`)
+        }, 1000);
+    } catch (err) {
+        dispatch(searchFail());
+        throw err;
     }
-    return result;
-};
+}
 
-export const createtrip = async (trip) => {
-    let result = null;
-    try {
-        result = await axios.post(`${CG_trip_API}/trip`, trip);
-    } catch (e) {
-        console.log("Find trip API error: " + e);
-    }
-    return result;
-};
-
-export const updatetrip = async (trip) => {
-    let result = null;
-    try {
-        result = await axios.put(`${CG_trip_API}/trip/${trip.id}`, trip);
-    } catch (e) {
-        console.log("Update trip API error: " + e);
-    }
-    return result;
-};
-
-export const deletetrip = async (tripId) => {
-    let result = null;
-    try {
-        result = await axios.delete(`${CG_trip_API}/trip/${tripId}`);
-    } catch (e) {
-        console.log("Delete trip API error: " + e);
-    }
-    return result;
-};

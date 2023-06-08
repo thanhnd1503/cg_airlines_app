@@ -1,31 +1,50 @@
-import React from 'react';
-import {useParams} from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Link, useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux';
-import {selectTripList} from "../../features/trip/tripSlice";
 
 const SearchResult = () => {
-    const {origin, destination} = useParams();
-    const tripList = useSelector(selectTripList);
+    const {departure, destination, departureDate, ticketClass} = useParams();
+    const tripListState = useSelector((state) => state.search.search?.currentUser);
+    const [tripList, setTripList] = useState(false);
 
-    // Filter the tripList based on origin and destination
+    useEffect(() => {
+        if (tripListState !== undefined && tripListState != null) {
+            setTripList(tripListState);
+        } else {
+            setTripList([]);
+        }
+    }, [tripListState]);
 
-    const filteredTrips = tripList.filter(
-        trip => trip.origin === origin && trip.destination === destination
-    );
 
     return (
-        <div className="search-result">
+        <div>
+            <h2><Link to={`/`}>home page</Link>
+            </h2>
             <h2>Search Results</h2>
-            {filteredTrips.length > 0 ? (
-                <ul>
-                    {filteredTrips.map(trip => (
-                        <li key={trip.id}>
-                            {/* Render the details of each trip */}
-                            <p>{trip.origin} to {trip.destination}</p>
-                            <p>Date: {trip.flightDate}</p>
-                        </li>
+            {tripListState && tripListState.length > 0 ? (
+                <table>
+                    <thead>
+                    <tr>
+                        <th>departure</th>
+                        <th>destination</th>
+                        <th>departure date</th>
+                        <th>ticket lass</th>
+                        <th>ticket price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {tripListState.map((trip) => (
+                        <tr key={trip.id}>
+                            <td>{trip.departure}</td>
+                            <td>{trip.destination}</td>
+                            <td>{trip.departureTime}</td>
+                            <td>{trip.ticketClass}</td>
+                            <td>{trip.ticketPrice}</td>
+
+                        </tr>
                     ))}
-                </ul>
+                    </tbody>
+                </table>
             ) : (
                 <p>No results found</p>
             )}
