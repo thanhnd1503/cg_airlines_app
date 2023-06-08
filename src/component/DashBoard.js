@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Search from "./Search/Search";
 import Footer from "./Footer/Footer";
 import Home from "./Home/Home";
