@@ -17,7 +17,7 @@ const Search = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        Aos.init({duration: 2500});
+        Aos.init({duration: 20});
     }, []);
 
     function handleOriginChange(selectedOption) {
@@ -65,7 +65,7 @@ const Search = () => {
 
     ]
     return (
-        <div className="search container section">
+        <div className="search container section activeHeader">
             <div data-aos="fade-up" data-aos-duration="2500" className="sectionContainer grid">
                 <form onSubmit={handleSubmit}>
                     <div data-aos="fade-up" data-aos-duration="2500" className="searchInputs flex">

@@ -15,7 +15,7 @@ import 'aos/dist/aos.css'
 
 const Footer = () => {
   useEffect(()=>{
-    Aos.init({duration: 2000})
+    Aos.init({duration: 20})
   }, []) 
   return (
     <div className='footer'>

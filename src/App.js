@@ -5,7 +5,7 @@ import ErrorPage from './component/errorPage';
 import LoginForm from './component/LoginForm';
 import DashBoard from './component/DashBoard';
 import {tokenLoader} from "../src/utility/author";
-import TripListContent from "./component/Search/SearchResult";
+import TripListContent from "./component/ticket/ticketBooking";
 
 
 function App() {
