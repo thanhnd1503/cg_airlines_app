@@ -904,7 +904,7 @@ h2 {
 
     .navBar .navBarOne .none {
         display: flex;
-        gap: 1.5rem;
+
     }
 
     .navBar .navBarOne .none li {
@@ -929,7 +929,6 @@ h2 {
 
     .navBar .navBarTwo .menu {
         flex-direction: row;
-        gap: 0.5rem;
     }
 
     .navBar .navBarTwo .menu .listItem {
@@ -1070,6 +1069,10 @@ h2 {
 
     .navBar .navBarOne, .navBar .navBarTwo {
         padding: 1.5rem 5rem;
+
+    }
+    .navBarOne{
+        padding-bottom: 0rem;
     }
 
     .navBar .activeHeader {
