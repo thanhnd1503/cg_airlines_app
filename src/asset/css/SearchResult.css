@@ -1,0 +1,53 @@
+/* SearchResult.css */
+.search-result-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh; /* Adjust this value as needed */
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    padding-top: 60px;
+}
+
+/*.search-result-container {*/
+/*    margin-top: 20px;*/
+/*    width: 100%;*/
+/*    overflow-y: scroll;*/
+/*    flex-grow: 1;*/
+/*}*/
+
+.search-result-card {
+    margin-bottom: 2rem;
+}
+.search-result-title{
+text-align: center}
+.search-result-cell {
+    font-size: 1.8rem;
+    padding: 0 2.6rem;
+
+}
+
+.plane-icon {
+    padding-left: 1rem;
+    scale: 200%;
+    padding-right: 1rem;
+
+
+}
+/* Rest of your existing styles for the SearchResult component */
+.booking-button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Customize the button background color */
+    color: #fff; /* Customize the button text color */
+    border-radius: 4px;
+}
+.booking-button {
+    margin-left: 20px; /* Adjust the margin as needed */
+}
+.search-result-wrapper {
+    display: flex;
+    align-items: center;
+}
+/* Optional: Hover and focus styles for the button */
