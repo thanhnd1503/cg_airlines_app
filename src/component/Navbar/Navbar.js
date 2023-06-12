@@ -74,7 +74,7 @@ const Navbar = () => {
           </li>
         </div>
         {status ? (
-          <div className="atb flex">
+          <div className="none flex">
             <span>
               {" "}
               <Link to="#" onClick={handelLogout}>Logout</Link>
@@ -85,7 +85,7 @@ const Navbar = () => {
             </span>
           </div>
         ) : (
-          <div className="atb flex">
+          <div className="none flex">
             <span>
               {" "}
               <Link to="/login">Login</Link>
