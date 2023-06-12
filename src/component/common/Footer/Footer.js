@@ -7,7 +7,7 @@ import {AiFillYoutube} from 'react-icons/ai'
 import {FaPinterestP} from 'react-icons/fa'
 
 //Imported Images ===>
-import Logo from '../../asset/img/logo.png'
+import Logo from '../../../asset/img/logo.png'
 
 // import AOS ============================>
 import Aos from 'aos'
@@ -15,12 +15,12 @@ import 'aos/dist/aos.css'
 
 const Footer = () => {
   useEffect(()=>{
-    Aos.init({duration: 20})
+    Aos.init({duration: 2000})
   }, []) 
   return (
     <div className='footer'>
       <div className="sectionContainer container grid">
-        <div data-aos="fade-up" data-aos-duration="2000" className="gridOne grid">
+        <div data-aos="fade-up" data-aos-duration="2500" className="gridOne grid">
           <div className="logoDiv">
             <img src={Logo} className='Logo'/>
           </div>
@@ -33,75 +33,75 @@ const Footer = () => {
           </div>
         </div>
 
-        <div data-aos="fade-up" data-aos-duration="2000" className="footerLinks">
+        <div data-aos="fade-up" data-aos-duration="2500" className="footerLinks">
           <span className="linkTitle">Information</span>
           <li>
-            <a href="#">Home</a>
+            <a href="src/component/common/Footer/Footer#">Home</a>
           </li>
           <li>
-            <a href="#">Explore</a>
+            <a href="src/component/common/Footer/Footer#">Explore</a>
           </li>
           <li>
-            <a href="#">Travel</a>
+            <a href="src/component/common/Footer/Footer#">Travel</a>
           </li>
           <li>
-            <a href="#">Flight Status</a>
+            <a href="src/component/common/Footer/Footer#">Flight Status</a>
           </li>
           <li>
-            <a href="#">Check-In</a>
+            <a href="src/component/common/Footer/Footer#">Check-In</a>
           </li>
           <li>
-            <a href="#">Manage your booking</a>
+            <a href="src/component/common/Footer/Footer#">Manage your booking</a>
           </li>
           </div>
 
-          <div data-aos="fade-up" data-aos-duration="2000" className="footerLinks">
+          <div data-aos="fade-up" data-aos-duration="2500" className="footerLinks">
             <span className="linkTitle">Quick Guide</span>
             <li>
-              <a href="#">FAQ</a>
+              <a href="src/component/common/Footer/Footer#">FAQ</a>
             </li>
             <li>
-              <a href="#">How to</a>
+              <a href="src/component/common/Footer/Footer#">How to</a>
             </li>
             <li>
-              <a href="#">Features</a>
+              <a href="src/component/common/Footer/Footer#">Features</a>
             </li>
             <li>
-              <a href="#">Baggage</a>
+              <a href="src/component/common/Footer/Footer#">Baggage</a>
             </li>
             <li>
-              <a href="#">Route Map</a>
+              <a href="src/component/common/Footer/Footer#">Route Map</a>
             </li>
             <li>
-              <a href="#">Our communities</a>
+              <a href="src/component/common/Footer/Footer#">Our communities</a>
             </li>
           </div>
 
-          <div data-aos="fade-up" data-aos-duration="2000" className="footerLinks">
+          <div data-aos="fade-up" data-aos-duration="2500" className="footerLinks">
             <span className="linkTitle">Queries</span>
             <li>
-              <a href="#">Chauffuer</a>
+              <a href="src/component/common/Footer/Footer#">Chauffuer</a>
             </li>
             <li>
-              <a href="#">Our partners</a>
+              <a href="src/component/common/Footer/Footer#">Our partners</a>
             </li>
             <li>
-              <a href="#">Destination</a>
+              <a href="src/component/common/Footer/Footer#">Destination</a>
             </li>
             <li>
-              <a href="#">Careers</a>
+              <a href="src/component/common/Footer/Footer#">Careers</a>
             </li>
             <li>
-              <a href="#">Transportation</a>
+              <a href="src/component/common/Footer/Footer#">Transportation</a>
             </li>
             <li>
-              <a href="#">Programme Rules</a>
+              <a href="src/component/common/Footer/Footer#">Programme Rules</a>
             </li>
           </div>
       </div>
 
       <div className="copyrightDiv flex">
-        <p>Courtesy Design | Developed by Binh </p>
+        <p>Courtesy Design | Developed by owl group </p>
 
       </div>
       

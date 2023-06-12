@@ -7,7 +7,7 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 const Lounge = () => {  
     useEffect(()=>{
-    Aos.init({duration: 2000})
+    Aos.init({duration: 20})
   }, []) 
   return (
     <div className='lounge container section'>

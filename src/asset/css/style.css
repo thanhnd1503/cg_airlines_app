@@ -68,11 +68,11 @@ list-type-ulli {
   font-style: italic;
   font-weight: 900;
   src: url("../fonts/montserrat/montserrat-v12-latin-900.ttf"),
-    url("../fonts/montserrat/montserrat-v12-latin-900.eot")
-      format("embedded-opentype"),
-    url("../fonts/montserrat/montserrat-v12-latin-900.svg") format("woff2"),
-    url("../fonts/montserrat/montserrat-v12-latin-900.woff") format("woff"),
-    url("../fonts/montserrat/montserrat-v12-latin-900.woff2") format("truetype");
+  url("../fonts/montserrat/montserrat-v12-latin-900.eot")
+  format("embedded-opentype"),
+  url("../fonts/montserrat/montserrat-v12-latin-900.svg") format("woff2"),
+  url("../fonts/montserrat/montserrat-v12-latin-900.woff") format("woff"),
+  url("../fonts/montserrat/montserrat-v12-latin-900.woff2") format("truetype");
 }
 a:focus,
 a:active {
@@ -173,7 +173,7 @@ body {
   font-weight: 400;
   font-family: "Montserrat";
   padding: 0px 0;
-  background-image: url("../images/signup-bg.jpg");
+  background-image: url("../../asset/images/signup-bg.jpg");
   background-repeat: repeat-y;
   background-size: cover;
   -moz-background-size: cover;
@@ -181,11 +181,6 @@ body {
   -o-background-size: cover;
   -ms-background-size: cover;
   background-position: center center;
-}
-
-.body {
-  
- 
 }
 
 .container {
@@ -288,9 +283,9 @@ body {
 .form-input:focus {
   border: 1px solid transparent;
   -webkit-border-image-source: -webkit-linear-gradient(
-    to right,
-    #9face6,
-    #74ebd5
+          to right,
+          #9face6,
+          #74ebd5
   );
   -moz-border-image-source: -moz-linear-gradient(to right, #9face6, #74ebd5);
   -o-border-image-source: -o-linear-gradient(to right, #9face6, #74ebd5);

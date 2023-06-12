@@ -51,7 +51,7 @@ const Members = () => {
 
    
      useEffect(()=>{
-    Aos.init({duration: 2000})
+    Aos.init({duration: 20})
   }, []) 
 
   return (
