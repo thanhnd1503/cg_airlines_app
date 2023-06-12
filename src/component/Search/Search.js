@@ -1,31 +1,27 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
-
+import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import Select from 'react-select';
-import {HiOutlineLocationMarker} from 'react-icons/hi';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 import {useDispatch} from 'react-redux';
 import {SearchTrip} from '../../api/tripApi';
 
 const Search = () => {
+    const selectStyles = {
+        control: (provided) => ({
+            ...provided,
+            Width: '50px',
+            Height: '50px',
+            borderRadius: '8px',
+            backgroundColor: 'rgb(255 255 255)',
+        }),
+    };
+
     const [departure, setDeparture] = useState('');
     const [destination, setDestination] = useState('');
     const [departureDate, setDepartureDate] = useState('');
     const [ticketClass, setTicketClass] = useState('');
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "auto"
-        });
-    };
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     Aos.init({duration: 20});
-    // }, []);
 
     function handleOriginChange(selectedOption) {
         setDeparture(selectedOption.value);
@@ -50,6 +46,10 @@ const Search = () => {
             };
 
             await SearchTrip(form, dispatch, navigate);
+            window.scrollTo({
+                top: 0,
+                behavior: 'auto',
+            });
         } catch (err) {
             console.error('Search failed:', err);
         }
@@ -59,7 +59,6 @@ const Search = () => {
         {value: 'HN', label: 'Hanoi'},
         {value: 'HCM', label: 'Ho Chi Minh City'},
         {value: 'Binh Dinh', label: 'Binh Dinh'},
-
         // Add more origin options as needed
     ];
 
@@ -67,80 +66,88 @@ const Search = () => {
         {value: 'HN', label: 'Hanoi'},
         {value: 'HCM', label: 'Ho Chi Minh City'},
         {value: 'TSN', label: 'TSN'},
-
         // Add more destination options as needed
     ];
-    const ticketClassOption = [
+
+    const ticketClassOptions = [
         {value: 'thương gia', label: 'thương gia'},
         {value: 'Bình dân', label: 'Bình dân'},
+    ];
 
-    ]
     return (
         <div className="search container section activeHeader">
-            <div data-aos="fade-up"  className="sectionContainer grid">
+            <div className="sectionContainer grid">
                 <form onSubmit={handleSubmit}>
-                    <div data-aos="fade-up" className="searchInputs flex">
-                        <div className="singleInput flex">
-                            <div className="iconDiv">
-                                <HiOutlineLocationMarker className="icon"/>
-                            </div>
+                    <div className="searchInputs flex">
+                        <div className="selectContainer">
+                            <div className="iconDiv"></div>
                             <div className="texts">
-                                <h4>Origin</h4>
+                                <h4>Từ</h4>
                                 <Select
-                                    placeholder=" Place"
+
+                                    components={{DropdownIndicator: () => null, IndicatorSeparator: () => null}}
                                     value={originOptions.find((option) => option.value === departure)}
-                                    options={originOptions}
+                                    options={originOptions.filter((option) => option.value !== departure)}
                                     onChange={handleOriginChange}
+                                    styles={selectStyles}
                                 />
                             </div>
                         </div>
 
-                        <div className="singleInput flex">
-                            <div className="iconDiv">
-                                <HiOutlineLocationMarker className="icon"/>
-                            </div>
+                        <div className="selectContainer">
+                            <div className="iconDiv"></div>
                             <div className="texts">
-                                <h4>Destination</h4>
+                                <h4>Đến</h4>
                                 <Select
-                                    placeholder=" Destination"
+                                    components={{DropdownIndicator: () => null, IndicatorSeparator: () => null}}
+                                    placeholder="đến"
                                     value={destinationOptions.find((option) => option.value === destination)}
-                                    options={destinationOptions}
+                                    options={destinationOptions.filter((option) => option.value !== departure)}
                                     onChange={handleDestinationChange}
+                                    styles={selectStyles}
                                 />
                             </div>
                         </div>
 
-                        <div className="singleInput flex">
-                            <div className="iconDiv">
-                                <HiOutlineLocationMarker className="icon"/>
-                            </div>
+                        <div className="selectContainer">
+                            <div className="iconDiv"></div>
                             <div className="texts">
-                                <h4>Date</h4>
-                                <input type="date" value={departureDate}
-                                       onChange={(e) => setDepartureDate(e.target.value)}/>
+                                <h4>Ngày đi</h4>
+                                <input
+                                    type="date"
+                                    value={departureDate}
+                                    onChange={(e) => setDepartureDate(e.target.value)}
+                                    style={selectStyles.control()}
+                                />
                             </div>
                         </div>
-                        <div className="singleInput flex">
-                            <div className="iconDiv">
-                                <HiOutlineLocationMarker className="icon"/>
-                            </div>
+
+                        <div className="selectContainer">
+                            <div className="iconDiv"></div>
                             <div className="texts">
-                                <h4>Class</h4>
+                                <h4>Loại ghế</h4>
                                 <Select
+                                    placeholder="Loại ghế"
+                                    styles={selectStyles}
+                                    components={{DropdownIndicator: () => null, IndicatorSeparator: () => null}}
                                     type="text"
-                                    value={ticketClassOption.find((option) => option.value === ticketClass)}
-                                    options={ticketClassOption}
-                                    onChange={handleTicketClassChange}/>
+                                    value={ticketClassOptions.find((option) => option.value === ticketClass)}
+                                    options={ticketClassOptions}
+                                    onChange={handleTicketClassChange}
+
+                                />
                             </div>
                         </div>
+
                         <button
+                            disabled={!departure || !destination || !departureDate || !ticketClass}
                             type="submit"
-                            className={`btn btnBlock flex `}
-                            onClick={scrollToTop}
+                            className="btn btnBlock flex"
+                            style={{marginTop: '60px'}}
+
                         >
                             Search Flight
                         </button>
-
                     </div>
                 </form>
             </div>

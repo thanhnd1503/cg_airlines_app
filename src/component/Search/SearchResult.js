@@ -33,12 +33,12 @@ const SearchResult = () => {
                                                 <table>
                                                     <tbody>
                                                     <tr>
-                                                        <td className="search-result-title">departure</td>
+                                                        <td className="search-result-title"> Từ </td>
                                                         <td className="search-result-title"></td>
-                                                        <td className="search-result-title">destination</td>
-                                                        <td className="search-result-title">time depart</td>
-                                                        <td className="search-result-title">seat class</td>
-                                                        <td className="search-result-title">Price</td>
+                                                        <td className="search-result-title"> Đến </td>
+                                                        <td className="search-result-title"> Thời gian khởi han </td>
+                                                        <td className="search-result-title"> Loại ghế </td>
+                                                        <td className="search-result-title"> Giá </td>
                                                     </tr>
                                                     <tr>
                                                         <td className="search-result-cell">{trip.departure}</td>
