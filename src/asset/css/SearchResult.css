@@ -32,6 +32,9 @@ text-align: center}
 .plane-icon {
     padding-left: 1rem;
     scale: 200%;
+    padding-right: 1rem;
+
+
 }
 /* Rest of your existing styles for the SearchResult component */
 .booking-button {

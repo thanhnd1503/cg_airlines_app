@@ -76,7 +76,7 @@ const Search = () => {
                             <div className="texts">
                                 <h4>Origin</h4>
                                 <Select
-                                    placeholder="Select place"
+                                    placeholder=" Place"
                                     value={originOptions.find((option) => option.value === departure)}
                                     options={originOptions}
                                     onChange={handleOriginChange}
@@ -91,7 +91,7 @@ const Search = () => {
                             <div className="texts">
                                 <h4>Destination</h4>
                                 <Select
-                                    placeholder="Select destination"
+                                    placeholder=" Destination"
                                     value={destinationOptions.find((option) => option.value === destination)}
                                     options={destinationOptions}
                                     onChange={handleDestinationChange}

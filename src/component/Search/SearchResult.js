@@ -48,15 +48,15 @@ const SearchResult = () => {
                                                                         className="plane-icon"
                                                                         clipRule="evenodd"
                                                                         fillRule="evenodd"
-                                                                        height="50"
-                                                                        width="50"
+                                                                        height="65"
+                                                                        width="65"
                                                                         imageRendering="optimizeQuality"
                                                                         shapeRendering="geometricPrecision"
                                                                         textRendering="geometricPrecision"
                                                                         viewBox="0 0 500 500"
                                                                         xmlns="http://www.w3.org/2000/svg"
                                                                     >
-                                                                        <g stroke="#222">
+                                                                        <g stroke="blue">
                                                                             <line
                                                                                 fill="none"
                                                                                 strokeLinecap="round"
@@ -68,7 +68,7 @@ const SearchResult = () => {
                                                                             />
                                                                             <path
                                                                                 d="M98 325c-9 10 10 16 25 6l311-156c24-17 35-25 42-50 2-15-46-11-78-7-15 1-34 10-42 16l-56 35 1-1-169-31c-14-3-24-5-37-1-10 5-18 10-27 18l122 72c4 3 5 7 1 9l-44 27-75-15c-10-2-18-4-28 0-8 4-14 9-20 15l74 63z"
-                                                                                fill="#222"
+                                                                                fill="blue"
                                                                                 strokeLinejoin="round"
                                                                                 strokeWidth="10"
                                                                             />
