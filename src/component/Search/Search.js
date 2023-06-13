@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import Select from 'react-select';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {SearchTrip} from '../../api/tripApi';
 
+
 const Search = () => {
+    const isLogin = useSelector(state => state.auth?.login?.currentUser);
     const selectStyles = {
         control: (provided) => ({
             ...provided,
@@ -47,7 +49,7 @@ const Search = () => {
                 ticketClass,
             };
 
-            await SearchTrip(form, dispatch, navigate);
+            await SearchTrip(form, dispatch, navigate,isLogin.token);
             window.scrollTo({
                 top: 0,
                 behavior: 'auto',
@@ -148,7 +150,6 @@ const Search = () => {
                             type="submit"
                             className="btn btnBlock flex"
                             style={{marginTop: '75px'}}
-
                         >
                             Search Flight
                         </button>
