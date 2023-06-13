@@ -9,7 +9,7 @@ const Search = () => {
         control: (provided) => ({
             ...provided,
             width: '200px',
-            height: '60px',
+            height: '55px',
             borderRadius: '8px',
             border: "1px solid black",
             backgroundColor: 'rgb(255 255 255)',
