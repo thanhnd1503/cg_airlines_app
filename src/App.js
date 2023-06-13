@@ -1,34 +1,29 @@
-import React from "react";
-import logo from "./logo.svg";
-import { Counter } from "./features/counter/Counter";
-import "./../src/asset/css/main.css";
-import Navbar from "./component/Navbar/Navbar";
-import Search from "./component/Search/Search";
-import Footer from "./component/Footer/Footer";
-import Home from "./component/Home/Home";
-import Support from "./component/Support/Support";
-import Info from "./component/info/Info";
-import Lounge from "./component/Lounge/Lounge";
-import Subcribe from "./component/Subscibe/Subscibe";
-import Members from "./component/Member/Menber";
-// import  ViewTicket from "./component/Ticket/viewTicket";
+// import "./../src/asset/css/main.css";
+import React from 'react';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import SignUpForm from './component/SignUpForm';
+import ErrorPage from './component/errorPage';
+import LoginForm from './component/LoginForm';
+import DashBoard from './component/DashBoard';
+import {tokenLoader} from "../src/utility/author";
+import TripListContent from "../src/component/Ticket/ticketBooking";
+
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <Home />
-      <Search />
-      <Support></Support>
-      <Info></Info>
-      <Lounge></Lounge>
-      <Members></Members>
-      <Subcribe></Subcribe>
-      <Footer />
-      {/* <ViewTicket></ViewTicket> */}
+    return (
+        <>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<DashBoard/>} errorElement={<ErrorPage/>} loader={{tokenLoader}}>
+                    </Route>
+                    <Route path={`/search-result/:departure/:destination/:departureDate/:ticketClass`}
+                           element={<TripListContent/>}></Route>
+                    <Route path='/login' element={<LoginForm/>}></Route>
+                    <Route path='/register' element={<SignUpForm/>}></Route></Routes>
+            </BrowserRouter>
 
-    </>
-  );
+        </>
+    );
 }
 
 export default App;
