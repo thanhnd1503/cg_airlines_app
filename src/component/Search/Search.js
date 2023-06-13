@@ -8,10 +8,12 @@ const Search = () => {
     const selectStyles = {
         control: (provided) => ({
             ...provided,
-            Width: '50px',
-            Height: '50px',
+            width: '200px',
+            height: '60px',
             borderRadius: '8px',
+            border: "1px solid black",
             backgroundColor: 'rgb(255 255 255)',
+
         }),
     };
 
@@ -84,12 +86,13 @@ const Search = () => {
                             <div className="texts">
                                 <h4>Từ</h4>
                                 <Select
-
+                                    placeholder={" từ "}
                                     components={{DropdownIndicator: () => null, IndicatorSeparator: () => null}}
                                     value={originOptions.find((option) => option.value === departure)}
                                     options={originOptions.filter((option) => option.value !== departure)}
                                     onChange={handleOriginChange}
                                     styles={selectStyles}
+
                                 />
                             </div>
                         </div>
@@ -105,6 +108,7 @@ const Search = () => {
                                     options={destinationOptions.filter((option) => option.value !== departure)}
                                     onChange={handleDestinationChange}
                                     styles={selectStyles}
+
                                 />
                             </div>
                         </div>
@@ -143,7 +147,7 @@ const Search = () => {
                             disabled={!departure || !destination || !departureDate || !ticketClass}
                             type="submit"
                             className="btn btnBlock flex"
-                            style={{marginTop: '60px'}}
+                            style={{marginTop: '75px'}}
 
                         >
                             Search Flight
