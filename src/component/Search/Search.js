@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import axios from "axios";
+
 import {useNavigate} from 'react-router-dom';
 import Select from 'react-select';
 import {HiOutlineLocationMarker} from 'react-icons/hi';
@@ -12,13 +14,18 @@ const Search = () => {
     const [destination, setDestination] = useState('');
     const [departureDate, setDepartureDate] = useState('');
     const [ticketClass, setTicketClass] = useState('');
-
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+    };
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        Aos.init({duration: 20});
-    }, []);
+    // useEffect(() => {
+    //     Aos.init({duration: 20});
+    // }, []);
 
     function handleOriginChange(selectedOption) {
         setDeparture(selectedOption.value);
@@ -51,12 +58,16 @@ const Search = () => {
     const originOptions = [
         {value: 'HN', label: 'Hanoi'},
         {value: 'HCM', label: 'Ho Chi Minh City'},
+        {value: 'Binh Dinh', label: 'Binh Dinh'},
+
         // Add more origin options as needed
     ];
 
     const destinationOptions = [
         {value: 'HN', label: 'Hanoi'},
         {value: 'HCM', label: 'Ho Chi Minh City'},
+        {value: 'TSN', label: 'TSN'},
+
         // Add more destination options as needed
     ];
     const ticketClassOption = [
@@ -66,9 +77,9 @@ const Search = () => {
     ]
     return (
         <div className="search container section activeHeader">
-            <div data-aos="fade-up" data-aos-duration="2500" className="sectionContainer grid">
+            <div data-aos="fade-up"  className="sectionContainer grid">
                 <form onSubmit={handleSubmit}>
-                    <div data-aos="fade-up" data-aos-duration="2500" className="searchInputs flex">
+                    <div data-aos="fade-up" className="searchInputs flex">
                         <div className="singleInput flex">
                             <div className="iconDiv">
                                 <HiOutlineLocationMarker className="icon"/>
@@ -124,7 +135,9 @@ const Search = () => {
                         </div>
                         <button
                             type="submit"
-                            className={`btn btnBlock flex `}>
+                            className={`btn btnBlock flex `}
+                            onClick={scrollToTop}
+                        >
                             Search Flight
                         </button>
 
