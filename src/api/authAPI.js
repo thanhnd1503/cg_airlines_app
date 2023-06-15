@@ -36,6 +36,7 @@ export const loginUser = async (form, dispatch, navigate) => {
     dispatch(loginStart());
     try {
         const res = await api.post(`${LOGIN_API}/auth/login`, form);
+        console.log(res);
         dispatch(loginSuccess(res.data));
         setTimeout(() => {
             navigate("/");

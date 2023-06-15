@@ -16,15 +16,25 @@ import {logout} from "../../api/authAPI";
 const Navbar = () => {
     const isLogin = useSelector((state) => state.auth?.login?.currentUser);
 
+    const roleDtoResponse = useSelector((state) => state.auth?.login?.currentUser?.userDtoResponse?.userRoleDtos[0]?.roleDtoResponse?.name);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    console.log(isLogin);
 
     const [status, setStatus] = useState(false);
+    const [statusAdmin, setStatusAdmin] = useState(false);
+    console.log(roleDtoResponse);
+
 
     useEffect(() => {
+        console.log(isLogin);
         if (isLogin) {
+            if(roleDtoResponse==="ROLE_ADMIN"){
+                setStatusAdmin(true);
+                setStatus(true);
+
+            }
             setStatus(true);
             return;
         }
@@ -70,7 +80,7 @@ const Navbar = () => {
                         <AiOutlineGlobal className="icon"/> Languages
                     </li>
                 </div>
-                {status ? (
+                {status && statusAdmin ? (
 
                     <div className="none flex">
             <span style={{marginRight: "10px"}}>
@@ -80,6 +90,13 @@ const Navbar = () => {
                         <span>
               {" "}
                             <Link to="/register">Profile</Link>
+            </span>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <span> 
+              {" "}
+                            <Link to="/admin">Admin Page</Link>
             </span>
                     </div>
                 ) : (
