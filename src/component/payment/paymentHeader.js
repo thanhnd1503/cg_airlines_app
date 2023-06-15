@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Container, Navbar,Nav } from "react-bootstrap";
+import { Button, Container, Navbar, Nav } from "react-bootstrap";
 
-export const PassengerInfoHeader = () => {
+function PaymentHeader() {
   return (
     <Navbar expand="lg" bg="dark" variant="dark" collapseOnSelect>
       <Container style={{ padding: "0 1rem", maxWidth: "100%" }}>
@@ -11,7 +11,7 @@ export const PassengerInfoHeader = () => {
             alt="Logo"
             style={{ height: "4vh", width: "auto", marginRight: "1rem" }}
           />
-          Codegym Airline
+         CodeGym Airline
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -68,4 +68,6 @@ export const PassengerInfoHeader = () => {
       </Container>
     </Navbar>
   );
-};
+}
+
+export default PaymentHeader;

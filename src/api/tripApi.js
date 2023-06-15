@@ -17,6 +17,7 @@ export const SearchTrip = async (form, dispatch, navigate,token) => {
             }
         });
         dispatch(searchSuccess(res.data.content));
+
         setTimeout(() => {
             navigate(`/search-result/${form.departure}/${form.destination}/${form.departureDate}/${form.ticketClass}`)
         }, 1000);
