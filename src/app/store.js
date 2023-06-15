@@ -1,7 +1,9 @@
 
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import authReducer from "../features/slice/authSlice";
-import searchReducer from "../features/trip/tripSlice"
+
+import searchReducer from "../features/trip/tripSlice";
+import ticketReducer from "../features/ticket/ticketSlice"
 
 import {
     persistStore,
@@ -15,6 +17,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+
 const persistConfig = {
     key: 'root',
     version: 1,
@@ -23,7 +26,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    search: searchReducer
+    search: searchReducer,
+    ticket: ticketReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

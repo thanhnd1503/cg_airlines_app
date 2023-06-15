@@ -239,7 +239,7 @@ h2 {
 }
 
 .home {
-    padding-top: 10rem;
+    padding-top: 5rem;
     text-align: center;
     gap: 2rem;
     flex-direction: column;
@@ -320,7 +320,7 @@ h2 {
     width: 100%;
     justify-content: center;
     flex-direction: column;
-    gap: 1.5rem;
+
 }
 
 .search .sectionContainer .searchInputs .singleInput .iconDiv {
@@ -367,7 +367,7 @@ h2 {
 .search .sectionContainer .btnBlock {
     width: 100%;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0;
 }
 
 .support .sectionContainer .titlesDiv {
@@ -763,6 +763,7 @@ h2 {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         top: 0;
+        gap: 0;
     }
 
     .travelers .sectionContainer .travelersContainer {
@@ -961,14 +962,17 @@ h2 {
         width: 70%;
         border-radius: 3rem;
         flex-direction: row;
+
     }
 
     .search .sectionContainer .searchInputs {
         grid-template-columns: repeat(4, 1fr);
+
     }
 
     .search .sectionContainer .searchInputs .singleInput .texts input {
         width: 100%;
+
     }
 
     .support .sectionContainer .infoDiv {
@@ -1061,6 +1065,7 @@ h2 {
     .container {
         width: 100%;
         margin: auto;
+        padding-top: 3rem;
     }
 
     .section {
@@ -1070,10 +1075,11 @@ h2 {
     .navBar .navBarOne, .navBar .navBarTwo {
         padding: 1.5rem 5rem;
 
+
     }
-    .navBarOne{
-        padding-bottom: 0rem;
-    }
+
+
+
 
     .navBar .activeHeader {
         padding: 0 5rem;

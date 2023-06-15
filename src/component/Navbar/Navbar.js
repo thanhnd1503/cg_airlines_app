@@ -46,15 +46,15 @@ const Navbar = () => {
     };
 
     //code statement to add a background color to the header.
-    const [transparent, setTransparent] = useState("navBarTwo");
-    const addBg = () => {
-        if (window.scrollY >= 10) {
-            setTransparent("navBarTwo activeHeader");
-        } else {
-            setTransparent("navBarTwo");
-        }
-    };
-    window.addEventListener("scroll", addBg);
+    const [transparent, setTransparent] = useState("navBarTwo flex");
+    // const addBg = () => {
+    //     if (window.scrollY >= 10) {
+    //         setTransparent("navBarTwo ");
+    //     } else {
+    //         setTransparent("navBarTwo");
+    //     }
+    // };
+    // window.addEventListener("scroll", addBg);
 
     return (
         <div className="navBar flex">
@@ -104,7 +104,8 @@ const Navbar = () => {
                 <div className={active}>
                     <ul className="menu flex">
                         <li onClick={removeNavBar} className="listItem">
-                            Home
+                            <Link to={"/"}>Home</Link>
+
                         </li>
                         <li onClick={removeNavBar} className="listItem">
                             About

@@ -1,31 +1,48 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useParams} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import {Link, useNavigate, useParams} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 import '../../asset/css/SearchResult.css';
 import {Card} from 'react-bootstrap';
 import Navbar from "../Navbar/Navbar";
+import {searchTicket} from "../../api/ticketAPI";
+
 
 const SearchResult = () => {
+    const searchTicketProgress = useSelector(state => state.ticket.ticket.currentTicket);
+    const isLoading = useSelector(state => state.ticket.ticket.isFetching);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const isLogin = useSelector(state => state.auth?.login?.currentUser);
     const {departure, destination, departureDate, ticketClass} = useParams();
     const tripListState = useSelector((state) => state.search.search?.currentUser);
     const [tripList, setTripList] = useState([]);
 
     useEffect(() => {
         if (tripListState !== undefined && tripListState !== null) {
+            console.log(tripListState);
             setTripList(tripListState);
         } else {
             setTripList([]);
         }
     }, [tripListState]);
 
+
+    const handleClickEvent = async (event) => {
+        console.log(event.target.value);
+
+        await searchTicket(event.target.value, dispatch, navigate, isLogin.token);
+    }
+
+
     return (
         <>
-            <div className="lounge container section">
+            {isLogin ? (<div className="lounge container section">
                 <div className="search-result-page">
                     {tripList.length > 0 ? (
                         <div className="search-result-container">
                             {tripList.map((trip) => (
-                                <div key={trip.id} className="search-result-wrapper">
+                                <div className="search-result-wrapper">
                                     <Card className="search-result-card">
                                         <Card.Header>Airline Name</Card.Header>
                                         <Card.Body>
@@ -33,12 +50,14 @@ const SearchResult = () => {
                                                 <table>
                                                     <tbody>
                                                     <tr>
-                                                        <td className="search-result-title">departure</td>
+                                                        <td className="search-result-title"> number</td>
+
+                                                        <td className="search-result-title"> Từ</td>
                                                         <td className="search-result-title"></td>
-                                                        <td className="search-result-title">destination</td>
-                                                        <td className="search-result-title">time depart</td>
-                                                        <td className="search-result-title">seat class</td>
-                                                        <td className="search-result-title">Price</td>
+                                                        <td className="search-result-title"> Đến</td>
+                                                        <td className="search-result-title"> Thời gian khởi han</td>
+                                                        <td className="search-result-title"> Loại ghế</td>
+                                                        <td className="search-result-title"> Giá</td>
                                                     </tr>
                                                     <tr>
                                                         <td className="search-result-cell">{trip.departure}</td>
@@ -76,19 +95,23 @@ const SearchResult = () => {
                                                                     </svg>
                                                                 </span>
                                                         </td>
+                                                        <td className="search-result-cell">{trip.ticketNumber}</td>
                                                         <td className="search-result-cell">{trip.destination}</td>
                                                         <td className="search-result-cell">{trip.departureTime}</td>
                                                         <td className="search-result-cell">{trip.ticketClass}</td>
                                                         <td className="search-result-cell">{trip.ticketPrice}</td>
                                                     </tr>
                                                     </tbody>
+
                                                 </table>
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
                                     <div className="booking-button-wrapper">
-                                        <Link to={`/booking-ticket/${trip.id}`}
-                                              className="booking-button">Booking</Link>
+                                        <button onClick={handleClickEvent}
+                                                value={trip.ticketNumber}
+                                                className="booking-button">Booking
+                                        </button>
                                     </div>
                                 </div>
                             ))}
@@ -97,7 +120,7 @@ const SearchResult = () => {
                         <p>No results found</p>
                     )}
                 </div>
-            </div>
+            </div>) : navigate("/login")}
         </>
     );
 };

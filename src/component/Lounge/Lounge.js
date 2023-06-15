@@ -6,20 +6,18 @@ import imageGrid from '../../asset/img/images-Grid2.png'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 const Lounge = () => {  
-    useEffect(()=>{
-    Aos.init({duration: 20})
-  }, []) 
+
   return (
     <div className='lounge container section'>
          <div className="sectionContainer grid">
-           <div data-aos="fade-left" data-aos-duration="2500" className="imgDiv">
+           <div  className="imgDiv">
              <img src={imageGrid} alt="" />
            </div>
            <div className="textDiv">
-            <h2 data-aos="fade-down" data-aos-duration="2500">Unaccompanied Minor Lounge</h2>
+            <h2 >Unaccompanied Minor Lounge</h2>
 
             <div className="grids grid">
-                <div data-aos="fade-down" data-aos-duration="2500" className="singleGrid">
+                <div  className="singleGrid">
                     <span className="gridTitle">
                         Help through the airpot
                     </span>
@@ -28,7 +26,7 @@ const Lounge = () => {
                     </p>
                 </div>
 
-                <div data-aos="fade-down" data-aos-duration="2500" className="singleGrid">
+                <div  className="singleGrid">
                     <span className="gridTitle">
                         Priority Boarding
                     </span>
@@ -37,7 +35,7 @@ const Lounge = () => {
                     </p>
                 </div>
 
-                <div data-aos="fade-down" data-aos-duration="2500" className="singleGrid">
+                <div className="singleGrid">
                     <span className="gridTitle">
                         Care on the flight
                     </span>
@@ -46,7 +44,7 @@ const Lounge = () => {
                     </p>
                 </div>
 
-                <div data-aos="fade-down" data-aos-duration="2500" className="singleGrid">
+                <div  className="singleGrid">
                     <span className="gridTitle">
                         Chauffeur-drive service
                     </span>

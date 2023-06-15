@@ -1,7 +1,6 @@
 import React, {useEffect, useState, useRef} from "react";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
 
 import "../asset/css/style.css";
 import "../asset/css/style.css.map";
@@ -587,8 +586,6 @@ export default function SignUpForm() {
                                             !validMatch ||
                                             !validPhone ||
                                             !validEmail
-                                                ? true
-                                                : false
                                         }
                                         onClick={handleSubmit}
                                     />
