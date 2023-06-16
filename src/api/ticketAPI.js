@@ -15,8 +15,8 @@ export const searchTicket = async (ticket, dispatch, navigate,token) => {
         dispatch(searchTicketSuccess(res.data));
         let timerInterval
         Swal.fire({
-            title: 'Auto close alert!',
-            html: 'I will close in <b></b> milliseconds.',
+            title: 'Xin đợi mình một chút nhé nhé!!!! ',
+            html: '  <b></b> milliseconds.',
             timer: 2000,
             timerProgressBar: true,
             didOpen: () => {

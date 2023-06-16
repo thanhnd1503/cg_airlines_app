@@ -50,10 +50,10 @@ const SearchResult = () => {
                                                 <table>
                                                     <tbody>
                                                     <tr>
-                                                        <td className="search-result-title"> number</td>
+                                                        <td className="search-result-title"> Từ </td>
 
-                                                        <td className="search-result-title"> Từ</td>
-                                                        <td className="search-result-title"></td>
+                                                        <td className="search-result-title"> </td>
+                                                        <td className="search-result-title"> Mã vé </td>
                                                         <td className="search-result-title"> Đến</td>
                                                         <td className="search-result-title"> Thời gian khởi han</td>
                                                         <td className="search-result-title"> Loại ghế</td>

@@ -1,4 +1,3 @@
-// import "./../src/asset/css/main.css";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUpForm from "./component/SignUpForm";
@@ -6,12 +5,14 @@ import ErrorPage from "./component/errorPage";
 import LoginForm from "./component/LoginForm";
 import DashBoard from "./component/DashBoard";
 import { tokenLoader } from "../src/utility/author";
-import ViewTicket from "./component/Ticket/viewTicket";
-import Eticket from "./component/Ticket/electronicTicket";
-import TicketBooking from "./component/Ticket/ticketBooking";
 
-import TripListContent from "./component/Ticket/ticketBooking";
 import PassengerInfomation from "./component/PassengerInfomation";
+import Admin from "./component/adminPage/admin";
+
+import PaymentMainBody from "./component/payment/paymentMainBody";
+import ViewTicket from "./component/Ticket/viewTicket";
+import YourComponent from "./component/Ticket/electronicTicket";
+import TicketBooking from "./component/Ticket/ticketBooking";
 
 function App() {
   return (
@@ -26,19 +27,24 @@ function App() {
           ></Route>
           <Route
             path={`/search-result/:departure/:destination/:departureDate/:ticketClass`}
-            element={<TripListContent />}
+            element={<TicketBooking />}
           ></Route>
-
           <Route path="/login" element={<LoginForm />}></Route>
+
+          <Route path="/admin" element={<Admin />}></Route>
+
+          <Route path="/payment" element={<PaymentMainBody />}></Route>
+
           <Route path="/register" element={<SignUpForm />}></Route>
           <Route
             path="/passengerInfo"
             element={<PassengerInfomation />}
           ></Route>
+
           <Route path="/viewTicket" element={<ViewTicket />}></Route>
-          <Route path="/eTicket" element={<Eticket />}></Route>
-          <Route path="/ticketBooking" element={<TicketBooking/>}></Route>
+          <Route path="/eTicket" element={<YourComponent />}></Route>
         </Routes>
+        {/* <Route path="/ticketBooking" element={<TicketBooking/>}></Route> */}
       </BrowserRouter>
     </>
   );
