@@ -50,20 +50,20 @@ const travelers = [
 const Members = () => {
 
    
-     useEffect(()=>{
-    Aos.init({duration: 20})
-  }, []) 
+  //    useEffect(()=>{
+  //   Aos.init({duration: 20})
+  // }, [])
 
   return (
     <div className='travelers container section'>
         <div className="sectionContainer">
-            <h2 data-aos="fade-down" data-aos-duration="2500">Top travelers of this month!</h2>
+            <h2 >Top travelers of this month!</h2>
 
             <div className="travelersContainer grid">
                 {
                     travelers.map(({id, destinationImage, travelerImage, travelerName, socialLink}) =>{
                         return(
-                            <div data-aos="fade-up" data-aos-duration="2500" key={id} className="singleTraveler">
+                            <div  key={id} className="singleTraveler">
                                 <img src={destinationImage} className='destinationImage'/>
                                 <div className="travelerDetails">
                                     <div className="travelerPicture">

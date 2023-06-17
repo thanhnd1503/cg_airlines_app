@@ -16,15 +16,25 @@ import {logout} from "../../api/authAPI";
 const Navbar = () => {
     const isLogin = useSelector((state) => state.auth?.login?.currentUser);
 
+    const roleDtoResponse = useSelector((state) => state.auth?.login?.currentUser?.userDtoResponse?.userRoleDtos[0]?.roleDtoResponse?.name);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    console.log(isLogin);
 
     const [status, setStatus] = useState(false);
+    const [statusAdmin, setStatusAdmin] = useState(false);
+    console.log(roleDtoResponse);
+
 
     useEffect(() => {
+        console.log(isLogin);
         if (isLogin) {
+            if(roleDtoResponse==="ROLE_ADMIN"){
+                setStatusAdmin(true);
+                setStatus(true);
+
+            }
             setStatus(true);
             return;
         }
@@ -46,15 +56,15 @@ const Navbar = () => {
     };
 
     //code statement to add a background color to the header.
-    const [transparent, setTransparent] = useState("navBarTwo");
-    const addBg = () => {
-        if (window.scrollY >= 10) {
-            setTransparent("navBarTwo activeHeader");
-        } else {
-            setTransparent("navBarTwo");
-        }
-    };
-    window.addEventListener("scroll", addBg);
+    const [transparent, setTransparent] = useState("navBarTwo flex");
+    // const addBg = () => {
+    //     if (window.scrollY >= 10) {
+    //         setTransparent("navBarTwo ");
+    //     } else {
+    //         setTransparent("navBarTwo");
+    //     }
+    // };
+    // window.addEventListener("scroll", addBg);
 
     return (
         <div className="navBar flex">
@@ -70,7 +80,7 @@ const Navbar = () => {
                         <AiOutlineGlobal className="icon"/> Languages
                     </li>
                 </div>
-                {status ? (
+                {status && statusAdmin ? (
 
                     <div className="none flex">
             <span style={{marginRight: "10px"}}>
@@ -80,6 +90,13 @@ const Navbar = () => {
                         <span>
               {" "}
                             <Link to="/register">Profile</Link>
+            </span>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <span> 
+              {" "}
+                            <Link to="/admin">Admin Page</Link>
             </span>
                     </div>
                 ) : (
@@ -104,7 +121,8 @@ const Navbar = () => {
                 <div className={active}>
                     <ul className="menu flex">
                         <li onClick={removeNavBar} className="listItem">
-                            Home
+                            <Link to={"/"}>Home</Link>
+
                         </li>
                         <li onClick={removeNavBar} className="listItem">
                             About
