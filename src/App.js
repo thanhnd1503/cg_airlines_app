@@ -13,6 +13,7 @@ import PaymentMainBody from "./component/payment/paymentMainBody";
 import ViewTicket from "./component/Ticket/viewTicket";
 import YourComponent from "./component/Ticket/electronicTicket";
 import TicketBooking from "./component/Ticket/ticketBooking";
+import HistoryTicket from "./component/Ticket/historyTicket";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
 
           <Route path="/viewTicket" element={<ViewTicket />}></Route>
           <Route path="/eTicket" element={<YourComponent />}></Route>
+          <Route path="/historyTicket" element={<HistoryTicket/>}></Route>
         </Routes>
         {/* <Route path="/ticketBooking" element={<TicketBooking/>}></Route> */}
       </BrowserRouter>

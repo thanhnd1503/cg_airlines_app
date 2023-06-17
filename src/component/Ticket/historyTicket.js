@@ -1,13 +1,51 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../asset/css/ticket.css";
-import videohoa from "../../asset/img/imager_3_69813_700.jpg";
-import "../../asset/css/eticket.css";
 
-const ViewTicket = () => {
+function historyTicket() {
   return (
-    <body>
-      <div style={{display:"flex"}}>
+    <>
+      <div>
+        <div className="text-center">
+          <h2>Air ticket history list</h2>
+          <form className="row g-3 ms-auto"></form>
+          <div className="col-auto">
+            <input
+              type="text"
+              className="form-control ms-auto"
+              placeholder="Search Data Flight Date"
+            />
+          </div>
+        </div>
+        <table className="table table-bordered border-primary table-responsive">
+          <thead>
+            <tr>
+              <th scope="col">Flight Date</th>
+              <th scope="col">ID</th>
+              <th scope="col">Status</th>
+              <th scope="col">ViewTicket</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="BodyColor">
+            <td  style={{ paddingRight: "60px" }}>
+            <p className="font-weight-bold">
+              <p>17-06-2023</p>
+            </p>
+            </td>
+            
+            <td  style={{ paddingRight: "60px" }}>
+            <p className="font-weight-bold">
+              <p>ID</p>
+            </p>
+            </td>
+            <td  style={{ paddingRight: "60px" }}>
+            <p className="font-weight-bold">
+              <p>Status(đã bay/ chưa bay)</p>
+            </p>
+            </td>
+
+              <div style={{display:"flex"}}>
 
         <div className="ticket" >
           <div id="banner">
@@ -22,7 +60,7 @@ const ViewTicket = () => {
             </span>
           </div>
           <div id="barcode">XYZASDASDXYZ</div>
-          <div id="data">
+         <td> <div id="data">
             <div id="maindata">
               <div className="box">
                 <span className="header">Passenger Name</span>
@@ -94,20 +132,16 @@ const ViewTicket = () => {
               <div></div>
               <div></div>
             </div>
-          </div>
-        </div>
-        <div className="button" style={{margin:"auto"}}>
-          <button type="button" class="btn btn-primary mr-5">
-            Back
-          </button>
-          <div className="text-warning">WellCome to Ticket Booking</div>
-          <button type="button" class="btn btn-success">
-            Ok
-          </button>
+          </div></td>
         </div>
       </div>
-    </body>
+      <td></td>
+            
+          </tbody>
+        </table>
+      </div>
+    </>
   );
-};
+}
 
-export default ViewTicket;
+export default historyTicket;
