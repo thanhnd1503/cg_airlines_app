@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from "../Navbar/Navbar";
 import SearchResult from "../Search/SearchResult";
 import Footer from "../Footer/Footer";
-
 function TicketBooking() {
     return (
         <>
@@ -12,5 +11,4 @@ function TicketBooking() {
         </>
     );
 }
-
 export default TicketBooking;

@@ -30,7 +30,7 @@ replay_pid*
 
 # testing
 /coverage
-
+.idea
 # production
 /build
 
