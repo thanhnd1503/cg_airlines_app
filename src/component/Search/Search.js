@@ -3,17 +3,26 @@ import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 import { useDispatch, useSelector } from "react-redux";
 import { SearchTrip } from "../../api/tripApi";
+import DatePicker from "react-datepicker";
+import moment from "moment/moment";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Search = () => {
   const isLogin = useSelector((state) => state.auth?.login?.currentUser);
   const selectStyles = {
     control: (provided) => ({
       ...provided,
-      width: "200px",
-      height: "55px",
-      borderRadius: "8px",
-      border: "1px solid black",
-      backgroundColor: "rgb(255 255 255)",
+      width: "300px",
+      height: "54px",
+      borderRadius: "4px",
+      border: "1px solid #e6e6e6",
+      backgroundColor: "#fff",
+      boxShadow: "none",
+      fontSize: "14px",
+      fontWeight: "normal",
+      color: "#333",
+      paddingLeft: "16px",
+
     }),
   };
 
@@ -21,7 +30,7 @@ const Search = () => {
   const [destination, setDestination] = useState("");
   const [departureDate, setDepartureDate] = useState("");
   const [ticketClass, setTicketClass] = useState("");
-
+  const currentDate = new Date().toISOString().split("T")[0];
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -57,17 +66,23 @@ const Search = () => {
     }
   }
 
+
   const originOptions = [
-    { value: "HN", label: "Hanoi" },
-    { value: "HCM", label: "Ho Chi Minh City" },
-    { value: "Binh Dinh", label: "Binh Dinh" },
+    { value: "Hà Nội", label: "Hà Nội" },
+    { value: "Hồ Chí Minh", label: "Hồ Chí Minh" },
+    { value: "Bình Định", label: "Bình Định" },
+    { value: "Cần Đước", label: "Cần Đước" },
+    { value: "An Giang", label: "An Giang" },
+
     // Add more origin options as needed
   ];
 
   const destinationOptions = [
-    { value: "HN", label: "Hanoi" },
-    { value: "HCM", label: "Ho Chi Minh City" },
-    { value: "TSN", label: "TSN" },
+    { value: "Hà Nội", label: "Hà Nội" },
+    { value: "Hồ Chí Minh", label: "Hồ Chí Minh" },
+    { value: "Bình Định", label: "Bình Định" },
+    { value: "Cần Đước", label: "Cần Đước" },
+    { value: "An Giang", label: "An Giang" },
     // Add more destination options as needed
   ];
 
@@ -90,6 +105,7 @@ const Search = () => {
                   components={{
                     DropdownIndicator: () => null,
                     IndicatorSeparator: () => null,
+                    ClearIndicator:()=>null
                   }}
                   value={originOptions.find(
                     (option) => option.value === departure
@@ -99,8 +115,6 @@ const Search = () => {
                   )}
                   onChange={handleOriginChange}
                   styles={selectStyles}
-                  isClearable={true}
-                  isSearchable={true}
                 />
               </div>
             </div>
@@ -113,6 +127,7 @@ const Search = () => {
                   components={{
                     DropdownIndicator: () => null,
                     IndicatorSeparator: () => null,
+                    ClearIndicator:()=>null
                   }}
                   placeholder="đến"
                   value={destinationOptions.find(
@@ -123,6 +138,7 @@ const Search = () => {
                   )}
                   onChange={handleDestinationChange}
                   styles={selectStyles}
+
                 />
               </div>
             </div>
@@ -136,45 +152,26 @@ const Search = () => {
                   value={departureDate}
                   onChange={(e) => setDepartureDate(e.target.value)}
                   style={selectStyles.control()}
+                  min={currentDate}
                 />
+
               </div>
             </div>
-
-            <div className="selectContainer">
-              <div className="iconDiv"></div>
-              <div className="texts">
-                <h4>Loại ghế</h4>
-                <Select
-                  placeholder="Loại ghế"
-                  styles={selectStyles}
-                  components={{
-                    DropdownIndicator: () => null,
-                    IndicatorSeparator: () => null,
-                  }}
-                  type="text"
-                  value={ticketClassOptions.find(
-                    (option) => option.value === ticketClass
-                  )}
-                  options={ticketClassOptions}
-                  onChange={handleTicketClassChange}
-                />
-              </div>
-            </div>
-
             <button
               disabled={
-                !departure || !destination || !departureDate || !ticketClass
+                !departure || !destination || !departureDate 
               }
               type="submit"
               className="btn btn-primary"
               style={{
-                marginTop: "75px",
+                marginTop: "68px",
                 width: "8rem",
                 height: "3rem",
                 justifyContent: "center",
                 display: "flex",
                 padding: "0",
                 alignContent: "center",
+                marginLeft:"30px"
               }}
             >
               Search Flight

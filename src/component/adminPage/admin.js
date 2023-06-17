@@ -5,15 +5,18 @@ import { useSelector } from 'react-redux';
 import '../../asset/css/SearchResult.css';
 import { current } from "@reduxjs/toolkit";
 import NavBar from "../adminPage/navbar/Navbar"
+import "../../asset/css/admin.css"
+import tripContent from "./trip/tripContent";
 export default function Admin() {
-  
   return (
     <>
         <div>
         <NavBar></NavBar>
-        
-          <h1> Trang admin </h1>
-          <Sidebar />
+        <div id="layoutSidenav">
+
+        <Sidebar />
+        <tripContent></tripContent>
+          </div>
         </div>
     </>
   );
