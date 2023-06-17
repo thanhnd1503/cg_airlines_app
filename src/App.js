@@ -17,39 +17,47 @@ import HistoryTicket from "./component/Ticket/historyTicket";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={<DashBoard />}
-            errorElement={<ErrorPage />}
-            loader={{ tokenLoader }}
-          ></Route>
-          <Route
-            path={`/search-result/:departure/:destination/:departureDate/:ticketClass`}
-            element={<TicketBooking />}
-          ></Route>
-          <Route path="/login" element={<LoginForm />}></Route>
+   <>
+  <BrowserRouter>
+    <Routes>
+      <Route
+        path="/"
+        element={<DashBoard />}
+        errorElement={<ErrorPage />}
+        loader={{ tokenLoader }}
+      ></Route>
+      <Route
+        path={`/search-result/:departure/:destination/:departureDate/`}
+        element={<TripListContent />}
+      ></Route>
+      <Route path="/login" element={<LoginForm />}></Route>
 
-          <Route path="/admin" element={<Admin />}></Route>
+      <Route path="/admin" element={<Admin />}></Route>
 
-          <Route path="/payment" element={<PaymentMainBody />}></Route>
+      <Route path="/payment" element={<PaymentMainBody />}></Route>
 
-          <Route path="/register" element={<SignUpForm />}></Route>
-          <Route
-            path="/passengerInfo"
-            element={<PassengerInfomation />}
-          ></Route>
+      <Route path="/register" element={<SignUpForm />}></Route>
+      <Route path="/passengerInfo" element={<PassengerInfomation />}></Route>
 
-          <Route path="/viewTicket" element={<ViewTicket />}></Route>
-          <Route path="/eTicket" element={<YourComponent />}></Route>
-          <Route path="/historyTicket" element={<HistoryTicket/>}></Route>
-        </Routes>
-        {/* <Route path="/ticketBooking" element={<TicketBooking/>}></Route> */}
-      </BrowserRouter>
-    </>
-  );
+      <Route
+        path="/viewTicket"
+        element={<ViewTicket />}
+      ></Route>
+      <Route
+        path="/eTicket"
+        element={<YourComponent />}
+      ></Route>
+      <Route
+        path="/historyTicket"
+        element={<HistoryTicket />}
+      ></Route>
+      <Route
+        path={`/search-result/:departure/:destination/:departureDate/:ticketClass`}
+        element={<TicketBooking />}
+      ></Route>
+    </Routes>
+  </BrowserRouter>
+</>)
 }
 
 export default App;

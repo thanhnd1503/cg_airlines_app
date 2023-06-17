@@ -19,7 +19,7 @@ export const SearchTrip = async (form, dispatch, navigate,token) => {
         dispatch(searchSuccess(res.data.content));
 
         setTimeout(() => {
-            navigate(`/search-result/${form.departure}/${form.destination}/${form.departureDate}/${form.ticketClass}`)
+            navigate(`/search-result/${form.departure}/${form.destination}/${form.departureDate}`)
         }, 1000);
     } catch (err) {
         dispatch(searchFail());
