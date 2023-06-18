@@ -83,10 +83,10 @@ const Navbar = () => {
                 {status && statusAdmin ? (
 
                     <div className="none flex">
-            <span style={{marginRight: "10px"}}>
+            <button type="button" class="btn btn-info" style={{marginRight: "10px"}}>
               {" "}
                 <Link to="#" onClick={handelLogout}>Logout</Link>
-            </span>
+            </button>
                         <span>
               {" "}
                             <Link to="/register">Profile</Link>
@@ -94,21 +94,21 @@ const Navbar = () => {
             &nbsp;
             &nbsp;
             &nbsp;
-            <span> 
+            <button type="button" class="btn btn-info">
               {" "}
                             <Link to="/admin">Admin Page</Link>
-            </span>
+            </button>
                     </div>
                 ) : (
                     <div className="none flex">
-            <span style={{marginRight: "10px"}}>
+            <button type="button" class="btn btn-info" style={{marginRight: "10px"}}>
               {" "}
                 <Link to="/login">Login</Link>
-            </span>
-                        <span>
+            </button>
+                        <button type="button" class="btn btn-info">
               {" "}
                             <Link to="/register">SignUp</Link>
-            </span>
+                        </button>
                     </div>
                 )}
             </div>

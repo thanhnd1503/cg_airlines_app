@@ -50,12 +50,12 @@ export default function LoginForm() {
     };
 
 
-  function handleChangeSignup(event) {
-    setForm({
-      ...form,
-      [event.target.name]: event.target.value,
-    });
-  }
+    function handleChangeSignup(event) {
+        setForm({
+            ...form,
+            [event.target.name]: event.target.value,
+        });
+    }
 
 
     const handleSubmit = async (e) => {
@@ -94,7 +94,8 @@ export default function LoginForm() {
                     <img src="../images/signup-bg.jpg" alt=""/>
                     <div className="container">
                         <div className="signup-content">
-                            <a className={"form-title"} href={"/"}>back</a>
+                            <button type="button" class="btn btn-info">
+                                <Link to={"/"}>back</Link></button>
                             <form
                                 ref={formRef}
                                 onSubmit={handleSubmit}

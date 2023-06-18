@@ -234,6 +234,8 @@ body {
   -o-border-radius: 10px;
   -ms-border-radius: 10px;
   padding: 50px 85px;
+  margin: auto;
+  width: 50rem;
 }
 
 .form-group {
