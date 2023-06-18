@@ -30,10 +30,8 @@ const SearchResult = () => {
   }, [tripListState]);
 
   const handleClickEvent = (event) => {
-    // console.log(event.target.value);
-    //     // console.log(isLogin.token);
-    //     // await searchTicket(event.target.value, dispatch, navigate, isLogin.token);
-    navigate("/passengerInfo")
+    const flightNum = event.target.value;
+    navigate(`/passengerInfo/${flightNum}`);
   };
 
   return (
@@ -119,7 +117,7 @@ const SearchResult = () => {
                         </Card.Text>
                         <div className="booking-button-wrapper">
                       <button
-                        onClick={handleClickEvent}
+                        onClick={e=>handleClickEvent(e)}
                         value={trip.flightNumber}
                         className="booking-button"
                       >
