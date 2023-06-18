@@ -12,7 +12,8 @@ import ViewTicket from "./component/ticket/viewTicket";
 import YourComponent from "./component/ticket/electronicTicket";
 import TicketBooking from "./component/ticket/ticketBooking";
 import HistoryTicket from "./component/ticket/historyTicket";
-import  TripListContent from "../src/component/Search/SearchResult"
+import  TripListContent from "../src/component/Search/SearchResult";
+import  Trip from "../src/component/adminPage/tripAdmin/Trip";
 function App() {
     return (
         <>
@@ -52,6 +53,11 @@ function App() {
                     <Route
                         path={`/search-result/:departure/:destination/:departureDate/:ticketClass`}
                         element={<TicketBooking/>}
+                    ></Route>
+
+                    <Route
+                        path="/tripAdmin"
+                        element={<Trip/>}
                     ></Route>
                 </Routes>
             </BrowserRouter>

@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div className='home flex container'>
             <div className="mainText">
-                <h1>CODEGYM  AIRLINE</h1>
+                <h1>CODEGYM &nbsp; AIRLINE</h1>
             </div>
             <div className="homeImages flex">
                 <div className="videoDiv">

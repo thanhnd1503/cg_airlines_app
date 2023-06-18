@@ -5,6 +5,7 @@ import "../../asset/css/SearchResult.css";
 import { Card } from "react-bootstrap";
 import Navbar from "../Navbar/Navbar";
 import { searchTicket } from "../../api/ticketAPI";
+import Footer from "../Footer/Footer";
 
 const SearchResult = () => {
   const searchTicketProgress = useSelector(
@@ -18,8 +19,8 @@ const SearchResult = () => {
   const tripListState = useSelector(
     (state) => state.search.search?.currentUser
   );
+  console.log(tripListState);
   const [tripList, setTripList] = useState([]);
-
 
   useEffect(() => {
     if (tripListState !== undefined && tripListState !== null) {
@@ -38,8 +39,9 @@ const SearchResult = () => {
 
   return (
     <>
+      <Navbar></Navbar>
       {isLogin ? (
-        <div className="lounge container section">
+        // <div className="lounge container section">
           <div className="search-result-page">
             {tripList.length > 0 ? (
               <div className="search-result-container">
@@ -48,7 +50,7 @@ const SearchResult = () => {
                     <Card className="search-result-card">
                       <Card.Header>
                         <div className="d-flex justify-content-between">
-                          <div><strong>{trip.flightNumber}</strong></div>
+                          <div style={{paddingTop:"10px"}}> mã chuyến bay:<strong>{trip.flightNumber}</strong></div>
 
                           <div>
                             <div> Ghế thương gia :{trip.quantityFirst} </div>
@@ -128,7 +130,6 @@ const SearchResult = () => {
                     </div>
                       </Card.Body>
                     </Card>
-                   
                   </div>
                 ))}
               </div>
@@ -140,12 +141,14 @@ const SearchResult = () => {
                 </p>
               </div>
             )}
-          </div>
+          {/*</div>*/}
         </div>
       ) : (
         navigate("/login")
       )}
+      <Footer></Footer>
     </>
+
   );
 };
 

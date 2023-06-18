@@ -244,8 +244,9 @@ export default function SignUpForm() {
                                 id="signup-form"
                                 className="signup-form"
                             >
-                                <a className={"form-title"} href={"/"}>back</a>
-
+                                <Link to={"/"}>
+                                    <button type="button" class="btn btn-info">
+                                        back</button></Link>
                                 <h2 className="form-title">Create account</h2>
                                 <p
                                     ref={errRef}

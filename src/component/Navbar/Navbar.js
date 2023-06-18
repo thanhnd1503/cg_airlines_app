@@ -24,13 +24,11 @@ const Navbar = () => {
 
     const [status, setStatus] = useState(false);
     const [statusAdmin, setStatusAdmin] = useState(false);
-    console.log(roleDtoResponse);
-
 
     useEffect(() => {
         console.log(isLogin);
         if (isLogin) {
-            if(roleDtoResponse==="ROLE_ADMIN"){
+            if (roleDtoResponse === "ROLE_ADMIN") {
                 setStatusAdmin(true);
                 setStatus(true);
 
@@ -68,7 +66,7 @@ const Navbar = () => {
 
     return (
         <div className="navBar flex">
-            <div className="navBarOne flex">
+            <div className="navBarOne flex " style={{paddingRight:"5px"}}>
                 <div>
                     <SiConsul className="icon"/>
                 </div>
@@ -80,40 +78,50 @@ const Navbar = () => {
                         <AiOutlineGlobal className="icon"/> Languages
                     </li>
                 </div>
-                {status && statusAdmin ? (
+                {status ? (
 
                     <div className="none flex">
-            <button type="button" class="btn btn-info" style={{marginRight: "10px"}}>
-              {" "}
-                <Link to="#" onClick={handelLogout}>Logout</Link>
-            </button>
-                        <span>
-              {" "}
-                            <Link to="/register">Profile</Link>
-            </span>
-            &nbsp;
-            &nbsp;
-            &nbsp;
-            <button type="button" class="btn btn-info">
-              {" "}
-                            <Link to="/admin">Admin Page</Link>
-            </button>
+                        <Link to="#" onClick={handelLogout}>
+                        <button type="button" class="btn btn-info" style={{marginRight: "10px"}}>
+                            {" "}
+                            Logout
+                        </button>
+                        </Link>
+                        <Link to="/register" >
+                        <button type="button" class="btn btn-info">
+                            {" "}
+                            Profile
+                        </button>
+                        </Link>
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <Link to="/admin" hidden={!statusAdmin}>
+                        <button type="button" class="btn btn-info">
+                            {" "}
+                            Admin Page
+                        </button>
+                        </Link>
                     </div>
                 ) : (
                     <div className="none flex">
-            <button type="button" class="btn btn-info" style={{marginRight: "10px"}}>
-              {" "}
-                <Link to="/login">Login</Link>
-            </button>
-                        <button type="button" class="btn btn-info">
-              {" "}
-                            <Link to="/register">SignUp</Link>
-                        </button>
+                        <Link to="/login">
+                            <button type="button" class="btn btn-info" style={{marginRight: "10px"}}>
+                                {" "}
+                                Login
+                            </button>
+                        </Link>
+                        <Link to="/register">
+                            <button type="button" class="btn btn-info">
+                                {" "}
+                                SignUp
+                            </button>
+                        </Link>
                     </div>
                 )}
             </div>
 
-            <div className={transparent}>
+            <div className={transparent} style={{paddingTop:"1px"}}>
                 <div className="logoDiv">
                     <img src={Logo} className="Logo"/>
                 </div>
@@ -137,7 +145,6 @@ const Navbar = () => {
                             Destinations
                         </li>
                     </ul>
-
                     <button onClick={removeNavBar} className="btn btnOne flex">
                         Contact
                     </button>

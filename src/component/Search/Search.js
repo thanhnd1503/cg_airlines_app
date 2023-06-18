@@ -170,7 +170,8 @@ const Search = () => {
                                 display: "flex",
                                 padding: "0",
                                 alignContent: "center",
-                                marginLeft: "30px"
+                                marginLeft: "30px",
+                                paddingTop:"3px"
                             }}
                         >
                             Search Flight

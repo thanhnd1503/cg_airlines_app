@@ -9,7 +9,7 @@ function tripListContent() {
   return (
     <main>
       <div className="container-fluid">
-        <h1 className="mt-4">List of Staff</h1>
+        <h1 className="mt-4">Các chuyến bay</h1>
         <ol className="breadcrumb mb-4">
           <li className="breadcrumb-item">
             <a href="index.html">Dashboard</a>

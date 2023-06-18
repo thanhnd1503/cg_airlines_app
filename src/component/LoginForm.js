@@ -2,9 +2,7 @@ import React, {useEffect, useState, useRef} from "react";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
-
 import "../asset/css/style.css";
-import "../asset/css/style.css.map";
 import "../asset/SignUpForm.css";
 import {faEye, faEyeSlash} from "@fortawesome/free-solid-svg-icons";
 import swal from "sweetalert";
@@ -89,13 +87,14 @@ export default function LoginForm() {
     return (
         <>
 
-            <div className="main body">
+            <div className="body main">
                 <section className="signup">
-                    <img src="../images/signup-bg.jpg" alt=""/>
+                    <img src="../asset/images/signup-bg.jpg" alt=""/>
                     <div className="container">
                         <div className="signup-content">
+                            <Link to={"/"}>
                             <button type="button" class="btn btn-info">
-                                <Link to={"/"}>back</Link></button>
+                                back</button></Link>
                             <form
                                 ref={formRef}
                                 onSubmit={handleSubmit}

@@ -12,7 +12,7 @@ import {
   Button,
 } from "react-bootstrap";
 import PassengerInfo from "./passengerInfo";
-
+import {useSelector} from "react-redux";
 
 const EMAIL_REGEX =
   /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
@@ -20,6 +20,7 @@ const PHONE_REGEX =
   /^(?:\+84|0)(?:3[2-9]|5[2689]|7[06-9]|8[1-9]|9[0-4]|1[2-9])\d{7}$/;
 
 function PassengerMainBody() {
+
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(true);
   const [phone, setPhone] = useState("");
