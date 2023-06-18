@@ -1,9 +1,10 @@
+
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import authReducer from "../features/slice/authSlice";
+
 import searchReducer from "../features/trip/tripSlice";
 import ticketReducer from "../features/ticket/ticketSlice"
 
-// import userReducer from "./userSlice";
 import {
     persistStore,
     persistReducer,
@@ -39,5 +40,6 @@ export const store = configureStore({
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
             },
         }),
+
 });
 export let persistor = persistStore(store);
