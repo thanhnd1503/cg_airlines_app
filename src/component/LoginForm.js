@@ -103,9 +103,9 @@ export default function LoginForm() {
                             >
                                 <h2 className="form-title">Sign in</h2>
                                 <div className="form-group">
-                                    <label htmlFor="username">
+                                    <div htmlFor="username">
                                         <h3>Username:</h3>
-                                    </label>
+                                    </div>
                                     <input
                                         type="text"
                                         ref={userRef}
@@ -124,9 +124,9 @@ export default function LoginForm() {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="password">
+                                    <div htmlFor="password">
                                         <h3> Password:</h3>
-                                    </label>
+                                    </div>
 
                                     <span
                                         style={{

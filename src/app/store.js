@@ -4,6 +4,7 @@ import authReducer from "../features/slice/authSlice";
 
 import searchReducer from "../features/trip/tripSlice";
 import ticketReducer from "../features/ticket/ticketSlice"
+import passengerReducer from "../features/passenger/passengerSlice";
 
 import {
     persistStore,
@@ -27,7 +28,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
     auth: authReducer,
     search: searchReducer,
-    ticket: ticketReducer
+    ticket: ticketReducer,
+    passenger:passengerReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

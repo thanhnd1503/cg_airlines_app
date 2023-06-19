@@ -14,6 +14,9 @@ import TicketBooking from "./component/ticket/ticketBooking";
 import HistoryTicket from "./component/ticket/historyTicket";
 import  TripListContent from "../src/component/Search/SearchResult";
 import  Trip from "../src/component/adminPage/tripAdmin/Trip";
+import Template2 from "./component/template2";
+import Invoice from "./component/invoice";
+import PDFGenerator from './component/invoice';
 function App() {
     return (
         <>
@@ -59,6 +62,8 @@ function App() {
                         path="/tripAdmin"
                         element={<Trip/>}
                     ></Route>
+                    <Route path="/demo" element={<Template2 />}></Route>
+                    <Route path="/invoice" element={<Invoice />}></Route>
                 </Routes>
             </BrowserRouter>
         </>)

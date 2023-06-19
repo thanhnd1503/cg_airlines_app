@@ -79,6 +79,7 @@ li {
     color: var(--whiteColor);
 }
 
+
 .btn a {
     color: var(--whiteColor);
     font-weight: 500;
@@ -1183,11 +1184,13 @@ h2 {
     .home .homeImages .plane {
         position: absolute;
         width: 100%;
-        top: -186%;
+        top: -185%;
     }
 
     .plane {
         position: relative;
+        margin-left: 9%;
+        max-width: 300rem;
     }
 }
 

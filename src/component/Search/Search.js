@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {SearchTrip} from "../../api/tripApi";
 import DatePicker from "react-datepicker";
 import moment from "moment/moment";
-import "react-datepicker/dist/react-datepicker.css";
+// import "react-datepicker/dist/react-datepicker.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 const Search = () => {
     const isLogin = useSelector((state) => state.auth?.login?.currentUser);
@@ -93,7 +93,6 @@ const Search = () => {
 
     return (
         <div className="search container section activeHeader">
-            <FontAwesomeIcon icon="fa-regular fa-arrow-right-arrow-left" />
 
             <div className="sectionContainer grid">
                 <form onSubmit={handleSubmit}>
@@ -145,15 +144,16 @@ const Search = () => {
                         <div className="selectContainer">
                             <div className="texts">
                                 <h4 style={{marginLeft: "50px"}}>Ngày đi</h4>
-                                <label>
+
                                     <input
                                         type="date"
                                         value={departureDate}
                                         onChange={(e) => setDepartureDate(e.target.value)}
                                         style={selectStyles.control()}
                                         min={currentDate}
+                                        size={"30px"}
                                     />
-                                </label>
+
                             </div>
                         </div>
                         <button

@@ -26,6 +26,11 @@ function PassengerMainBody() {
   const [phone, setPhone] = useState("");
   const [validPhone, setValidPhone] = useState(true);
   const [form, setForm] = useState({});
+  const[luggage,setLuggage]=useState(false);
+  const[signal,setSignal]=useState(false);
+  const handleSubmit = () =>{
+    setSignal(true);
+}
 
   const handleChangeField = (event) => {
     if (event.target.name === "email") {
@@ -157,7 +162,7 @@ function PassengerMainBody() {
                 </Row>
               </Form>
             </div>
-            <PassengerInfo />
+            <PassengerInfo luggage={luggage} signal={signal} />
             <Form
               style={{
                 border: "1px solid black",
@@ -490,8 +495,9 @@ function PassengerMainBody() {
                               id="custom-option-checkInBaggage-content-false-0"
                               name="checkInBaggage"
                               type="radio"
-                              value="false"
+                              value="true"
                               style={{ marginRight: "5px" }}
+                              onChange={(event) => setLuggage(event.target.value)}
                             />
                             <div>
                               <bdi style={{ marginBottom: "5px" }}>
@@ -530,6 +536,16 @@ function PassengerMainBody() {
                 <hr />
                 <div style={{ height: "150px" }}></div>
               </div>
+              <div>
+              <button
+                className="button-68"
+                type="button"
+                onClick={handleSubmit}
+                style={{marginLeft:"33rem"}}
+              >
+                <span className="text">Gửi thông tin</span>
+              </button>
+            </div>
             </Form>
           </Container>
         </Container>
