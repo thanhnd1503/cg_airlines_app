@@ -80,34 +80,34 @@ const Navbar = () => {
                         <AiOutlineGlobal className="icon"/> Languages
                     </li>
                 </div>
-                {status && statusAdmin ? (
+                {status ? (
 
                     <div className="none flex">
             <span style={{marginRight: "10px"}}>
               {" "}
-                <Link to="#" onClick={handelLogout}>Logout</Link>
+                <Link to="#" onClick={handelLogout}><button type="button" class="btn btn-info" style={{marginRight:'10px'}}>Logout</button></Link>
             </span>
                         <span>
               {" "}
-                            <Link to="/register">Profile</Link>
+                            <Link to="/register"><button type="button" class="btn btn-info" style={{marginRight:'10px'}}>Profile</button></Link>
             </span>
             &nbsp;
             &nbsp;
             &nbsp;
             <span> 
               {" "}
-                            <Link to="/admin">Admin Page</Link>
+                            <Link hidden={!statusAdmin} to="/admin"><button type="button" class="btn btn-info" style={{marginRight:'10px'}}>Admin Page</button></Link>
             </span>
                     </div>
                 ) : (
                     <div className="none flex">
             <span style={{marginRight: "10px"}}>
               {" "}
-                <Link to="/login">Login</Link>
+                <Link to="/login"><button type="button" class="btn btn-info" style={{marginRight:'10px'}}>LogIn</button></Link>
             </span>
                         <span>
               {" "}
-                            <Link to="/register">SignUp</Link>
+                            <Link to="/register"><button type="button" class="btn btn-info" style={{marginRight:'10px'}}>SignUp</button></Link>
             </span>
                     </div>
                 )}

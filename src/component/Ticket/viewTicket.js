@@ -82,7 +82,7 @@ const ViewTicket = () => {
 
               <div className="box ">
                 <span className="header">Boarding Time</span>
-                <span className="body">{ticket.flight?.departureDate}</span>
+                <span className="body">{ticket.flight?.departureTime}</span>
               </div>
               <div className="box">
                 <span className="header"></span>

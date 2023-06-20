@@ -27,6 +27,9 @@ function PassengerMainBody() {
   const [form, setForm] = useState({});
   const[luggage,setLuggage]=useState(false);
   const[signal,setSignal]=useState(false);
+
+
+  console.log(luggage);
   const handleSubmit = () =>{
     setSignal(true);
 }
@@ -494,9 +497,8 @@ function PassengerMainBody() {
                               id="custom-option-checkInBaggage-content-false-0"
                               name="checkInBaggage"
                               type="radio"
-                              value="true"
                               style={{ marginRight: "5px" }}
-                              onChange={(event) => setLuggage(event.target.value)}
+
                             />
                             <div>
                               <bdi style={{ marginBottom: "5px" }}>
@@ -514,6 +516,7 @@ function PassengerMainBody() {
                               type="radio"
                               value="true"
                               style={{ marginRight: "5px" }}
+                              onChange={(event) => setLuggage(true)}
                             />
                             <div>
                               <bdi style={{ marginBottom: "5px" }}>

@@ -61,7 +61,6 @@ export default function LoginForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         swal({
-            title: "Are you sure?",
             text: "You want to login ?",
             icon: "warning",
             buttons: true,
@@ -94,7 +93,7 @@ export default function LoginForm() {
                     <img src="../images/signup-bg.jpg" alt=""/>
                     <div className="container">
                         <div className="signup-content">
-                            <a className={"form-title"} href={"/"}>back</a>
+                            <a className={"form-title"} href={"/"}><button type="button" class="btn btn-info" style={{marginRight:'10px'}}>Back</button></a>
                             <form
                                 ref={formRef}
                                 onSubmit={handleSubmit}
@@ -103,9 +102,9 @@ export default function LoginForm() {
                             >
                                 <h2 className="form-title">Sign in</h2>
                                 <div className="form-group">
-                                    <label htmlFor="username">
+                                    <div htmlFor="username">
                                         <h3>Username:</h3>
-                                    </label>
+                                    </div>
                                     <input
                                         type="text"
                                         ref={userRef}
@@ -124,9 +123,9 @@ export default function LoginForm() {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="password">
+                                    <div htmlFor="password">
                                         <h3> Password:</h3>
-                                    </label>
+                                    </div>
 
                                     <span
                                         style={{

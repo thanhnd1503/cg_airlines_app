@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Container, Navbar,Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const PassengerInfoHeader = () => {
   return (
@@ -58,7 +59,7 @@ export const PassengerInfoHeader = () => {
                     ></path>
                   </svg>
                   <span style={{ fontSize: "0.9rem" }}>
-                    Hoạt Động Đặt Vé Của Tôi
+                    <Link to={"/historyTicket"}>Hoạt động đặt vé của tôi</Link>
                   </span>
                 </div>
               </Button>

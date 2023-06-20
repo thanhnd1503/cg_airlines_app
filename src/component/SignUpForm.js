@@ -244,7 +244,7 @@ export default function SignUpForm() {
                                 id="signup-form"
                                 className="signup-form"
                             >
-                                <a className={"form-title"} href={"/"}>back</a>
+                                <a className={"form-title"} href={"/"}><button type="button" class="btn btn-info" style={{marginRight:'10px'}}>Back</button></a>
 
                                 <h2 className="form-title">Create account</h2>
                                 <p
@@ -263,7 +263,7 @@ export default function SignUpForm() {
                                             This User Name already exists
                                         </p>
                                     )}
-                                    <label htmlFor="username">
+                                    <div htmlFor="username">
                                         <h3>
                                             Username:
                                             <FontAwesomeIcon
@@ -279,7 +279,7 @@ export default function SignUpForm() {
                                                 className={!messErrName ? "hide" : "invalid"}
                                             />
                                         </h3>
-                                    </label>
+                                    </div>
                                     <input
                                         type="text"
                                         ref={userRef}
@@ -324,7 +324,7 @@ export default function SignUpForm() {
                                             This Email already exists
                                         </p>
                                     )}
-                                    <label htmlFor="email">
+                                    <div htmlFor="email">
                                         <h3>
                                             {" "}
                                             Email:
@@ -343,7 +343,7 @@ export default function SignUpForm() {
                                                 className={!messEmailErr ? "hide" : "invalid"}
                                             />
                                         </h3>
-                                    </label>
+                                    </div>
                                     <input
                                         type="text"
                                         className="form-input"
@@ -383,7 +383,7 @@ export default function SignUpForm() {
                                             This PhoneNumber already exists
                                         </p>
                                     )}
-                                    <label htmlFor="phone">
+                                    <div htmlFor="phone">
                                         <h3>
                                             Phone:
                                             <FontAwesomeIcon
@@ -401,7 +401,7 @@ export default function SignUpForm() {
                                                 className={!messPhoneErr ? "hide" : "invalid"}
                                             />
                                         </h3>
-                                    </label>
+                                    </div>
                                     <input
                                         type="text"
                                         className="form-input"
@@ -439,7 +439,7 @@ export default function SignUpForm() {
                                     </p>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="password">
+                                    <div htmlFor="password">
                                         <h3>
                                             {" "}
                                             Password:
@@ -454,7 +454,7 @@ export default function SignUpForm() {
                                                 }
                                             />
                                         </h3>
-                                    </label>
+                                    </div>
 
                                     <span
                                         style={{
@@ -511,7 +511,7 @@ export default function SignUpForm() {
                                     </p>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="confirm_pwd">
+                                    <div htmlFor="confirm_pwd">
                                         <h3>
                                             {" "}
                                             Confirm Password:
@@ -524,7 +524,7 @@ export default function SignUpForm() {
                                                 className={validMatch || !matchPwd ? "hide" : "invalid"}
                                             />
                                         </h3>
-                                    </label>
+                                    </div>
 
                                     <span
                                         style={{
