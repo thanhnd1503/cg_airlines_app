@@ -7,8 +7,8 @@ const Navbar = () => {
     return (
         <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a className="navbar-brand" href="/"> Trang chủ </a>
-            <button className="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
-                className="fas fa-bars"></i></button>
+            {/*<button className="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i*/}
+            {/*    className="fas fa-bars"></i></button>*/}
 
             {/*Navbar Search*/}
             {/* <NavbarSearch/> */}
